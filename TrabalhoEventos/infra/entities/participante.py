@@ -14,4 +14,4 @@ class Participante(Base):
 
     def __repr__(self):
         return (f'Participante [nome= {self.nome}, e-mail= {self.email},'
-                f' eventos inscritos{self.lista_eventos_inscritoss}]')
+                f' eventos inscritos{self.lista_eventos_inscritos}]')
