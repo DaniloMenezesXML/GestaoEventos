@@ -5,7 +5,7 @@ from sqlalchemy.orm import relationship, Mapped, mapped_column
 from infra.config.base import Base
 
 class Sessao(Base):
-    __tablename__ = 'sessap'
+    __tablename__ = 'sessao'
 
     participante_id: Mapped[int] = mapped_column(ForeignKey("participante.id"), primary_key=True)
     evento_id: Mapped[int] = mapped_column(ForeignKey("evento.id"), primary_key=True)
