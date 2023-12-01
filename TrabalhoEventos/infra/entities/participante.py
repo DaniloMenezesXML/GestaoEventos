@@ -3,7 +3,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from infra.config.base import Base
 
 class Participante(Base):
-    __tablename__ = 'participante'
+    __tablename__ = 'participantp'
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     nome: Mapped[str] = mapped_column(nullable=False)
