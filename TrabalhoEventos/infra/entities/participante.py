@@ -1,6 +1,6 @@
 from __future__ import  annotations
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from infra.config.base import Base
+from TrabalhoEventos.infra.config.base import Base
 
 class Participante(Base):
     __tablename__ = 'participante'

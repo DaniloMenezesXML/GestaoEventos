@@ -1,5 +1,5 @@
-from infra.config.connection import DBConnectionHandler
-from infra.entities.evento import Evento
+from TrabalhoEventos.infra.config.connection import DBConnectionHandler
+from TrabalhoEventos.infra.entities.evento import Evento
 
 class EventoRepository():
 

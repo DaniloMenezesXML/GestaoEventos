@@ -3,16 +3,16 @@ import datetime
 import pandas as pd
 from PySide6.QtWidgets import QMessageBox, QTableWidgetItem
 
-from infra.repository.emprestimo_repository import EmprestimoRepository
-from infra.repository.uniforme_repository import UniformeRepository
-from infra.repository.funcionario_repository import FuncionarioRepository
+from TrabalhoEventos.infra.repository.evento_repository import EventoRepository
+from TrabalhoEventos.infra.repository.participante_repository import ParticipanteRepository
+from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
 
 
 class MainWindowService:
     def __init__(self):
-        self.emprestimo_repository = EmprestimoRepository
-        self.funcionario_repository = FuncionarioRepository
-        self.uniforme_repository = UniformeRepository
+        self.evento_repository = EventoRepository
+        self.participante_repository = ParticipanteRepository
+        self.sessao_repository = SessaoRepository
 
     def populate_table_funcionario(self, main_window):
         main_window.tb_funcionarios.setRowCount(0)

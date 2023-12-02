@@ -1,7 +1,7 @@
 from __future__ import  annotations
 import datetime
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from infra.config.base import Base
+from TrabalhoEventos.infra.config.base import Base
 
 class Evento(Base):
     __tablename__ = 'evento'
