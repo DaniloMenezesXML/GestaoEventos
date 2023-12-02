@@ -1,10 +1,10 @@
 from datetime import datetime
 from sqlalchemy.orm import joinedload
 
-from infra.config.connection import DBConnectionHandler
-from infra.entities.participante import Participante
-from infra.entities.evento import Evento
-from infra.entities.sessao import Sessao
+from TrabalhoEventos.infra.config.connection import DBConnectionHandler
+from TrabalhoEventos.infra.entities.participante import Participante
+from TrabalhoEventos.infra.entities.evento import Evento
+from TrabalhoEventos.infra.entities.sessao import Sessao
 
 class SessaoRepository:
 

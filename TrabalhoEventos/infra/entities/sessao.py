@@ -2,7 +2,7 @@ from __future__ import  annotations
 from datetime import datetime
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
-from infra.config.base import Base
+from TrabalhoEventos.infra.config.base import Base
 
 class Sessao(Base):
     __tablename__ = 'sessao'
