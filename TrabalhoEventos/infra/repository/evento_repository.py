@@ -18,7 +18,7 @@ class EventoRepository():
     @staticmethod
     def select_evento_by_nome(nome_evento):
         with DBConnectionHandler() as db:
-            evento = db.session.query(Evento).filter(Evento.cpf == nome_evento).first()
+            evento = db.session.query(Evento).filter(Evento.nome == nome_evento).first()
             return evento
 
     @staticmethod
