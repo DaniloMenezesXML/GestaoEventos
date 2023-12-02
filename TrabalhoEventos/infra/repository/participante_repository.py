@@ -10,10 +10,10 @@ class ParticipanteRepository():
             return participante
 
     @staticmethod
-    def select_funcionario_by_uniforme_id(id_uniforme):
+    def select_participante_by_evento_id(id_evento):
         with DBConnectionHandler() as db:
-            funcionario = db.session.query(Funcionario).filter(Funcionario.uniforme_id == id_uniforme).first()
-            return funcionario
+            participante = db.session.query(Participante).filter(Participante.evento_id == id_evento).first()
+            return participante
 
     @staticmethod
     def select_participante_by_email(email_participante):
