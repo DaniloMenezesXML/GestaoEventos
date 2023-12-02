@@ -50,9 +50,3 @@ class EventoRepository():
         with DBConnectionHandler() as db:
             db.session.query(Evento).filter(Evento.id == evento.id).update({'nome': evento.nome, 'data do evento': evento.data_evento, 'lista de participantes': evento.lista_participante})
             db.session.commit()
-
-    @staticmethod
-    def delete_evento(evento):
-        with DBConnectionHandler() as db:
-            db.session.query(Evento).filter(Evento.id == evento.id).update({'ativo': False})
-            db.session.commit()
