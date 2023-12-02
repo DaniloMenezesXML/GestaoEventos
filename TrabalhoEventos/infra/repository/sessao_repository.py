@@ -36,3 +36,28 @@ class SessaoRepository:
                           .join(Participante, Participante.id == Sessao.participante_id)
                           .join(Evento, Evento.id == Sessao.evento_id))
             return sessoes
+
+    @staticmethod
+    def select_all_sessoes():
+        with DBConnectionHandler() as db:
+            sessoes = db.session.query(Sessao).all()
+            return sessoes
+
+    @staticmethod
+    def select_sessoes_by_email(email):
+        try:
+            email_participante = email
+            with DBConnectionHandler() as db:
+                sessoes = (
+                    db.session.query(Sessao, Participante, Evento)
+                    .join(Participante, Participante.id == Sessao.participante_id)
+                    .join(Evento, Evento.id == Sessao.evento_id)
+                    .filter(Sessao.tema.between(email_participante))
+                    .options(
+                        joinedload(Sessao.participante),
+                        joinedload(Sessao.evento))
+                    .all()
+                )
+                return sessoes
+        except Exception as e:
+            print(e)

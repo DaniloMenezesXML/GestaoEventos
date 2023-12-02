@@ -18,12 +18,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QHeaderView,
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
+import TrabalhoEventos.view.resource_rc
 
 class Ui_inscricao(object):
     def setupUi(self, inscricao):
         if not inscricao.objectName():
             inscricao.setObjectName(u"inscricao")
         inscricao.resize(562, 608)
+        icon = QIcon()
+        icon.addFile(u"image: url(:/icon/MicrosoftTeams-image.png)", QSize(), QIcon.Normal, QIcon.Off)
+        inscricao.setWindowIcon(icon)
         self.verticalLayout_2 = QVBoxLayout(inscricao)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.widget = QWidget(inscricao)

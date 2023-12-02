@@ -19,13 +19,16 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QHeaderView
     QLabel, QLineEdit, QMainWindow, QPushButton,
     QSizePolicy, QSpacerItem, QTabWidget, QTableWidget,
     QTableWidgetItem, QVBoxLayout, QWidget)
-import icon 1_rc
+import TrabalhoEventos.view.resource_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(891, 745)
+        MainWindow.resize(836, 706)
+        icon = QIcon()
+        icon.addFile(u"image: url(:/icon/MicrosoftTeams-image.png)", QSize(), QIcon.Normal, QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_5 = QVBoxLayout(self.centralwidget)
@@ -259,14 +262,16 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.cb_tipo_evento_sessao)
 
         self.tb_lista_sessao_criar_sessao = QTableWidget(self.widget_3)
-        if (self.tb_lista_sessao_criar_sessao.columnCount() < 3):
-            self.tb_lista_sessao_criar_sessao.setColumnCount(3)
+        if (self.tb_lista_sessao_criar_sessao.columnCount() < 4):
+            self.tb_lista_sessao_criar_sessao.setColumnCount(4)
         __qtablewidgetitem11 = QTableWidgetItem()
         self.tb_lista_sessao_criar_sessao.setHorizontalHeaderItem(0, __qtablewidgetitem11)
         __qtablewidgetitem12 = QTableWidgetItem()
         self.tb_lista_sessao_criar_sessao.setHorizontalHeaderItem(1, __qtablewidgetitem12)
         __qtablewidgetitem13 = QTableWidgetItem()
         self.tb_lista_sessao_criar_sessao.setHorizontalHeaderItem(2, __qtablewidgetitem13)
+        __qtablewidgetitem14 = QTableWidgetItem()
+        self.tb_lista_sessao_criar_sessao.setHorizontalHeaderItem(3, __qtablewidgetitem14)
         self.tb_lista_sessao_criar_sessao.setObjectName(u"tb_lista_sessao_criar_sessao")
         self.tb_lista_sessao_criar_sessao.horizontalHeader().setDefaultSectionSize(175)
 
@@ -352,6 +357,8 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Palestrante da Sess\u00e3o", None));
         ___qtablewidgetitem13 = self.tb_lista_sessao_criar_sessao.horizontalHeaderItem(2)
         ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Hor\u00e1rio da Sess\u00e3o", None));
+        ___qtablewidgetitem14 = self.tb_lista_sessao_criar_sessao.horizontalHeaderItem(3)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"Evento", None));
         self.btn_criar_sessao.setText(QCoreApplication.translate("MainWindow", u"Criar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.criar_sessao), QCoreApplication.translate("MainWindow", u"Criar Sess\u00e3o", None))
     # retranslateUi
