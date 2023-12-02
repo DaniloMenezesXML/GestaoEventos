@@ -19,4 +19,4 @@ class Sessao(Base):
 
     def __repr__(self):
         return (f'Sessao [tema= {self.nome}, palestrante={self.palestrante},'
-                f' data da sessao= {self.data_evento}]')
+                f' data da sessao= {self.data_sessao}]')
