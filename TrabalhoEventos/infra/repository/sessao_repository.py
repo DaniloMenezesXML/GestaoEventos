@@ -1,5 +1,4 @@
 from datetime import datetime
-from sqlalchemy.orm import joinedload
 
 from infra.config.connection import DBConnectionHandler
 from infra.entities.participante import Participante
