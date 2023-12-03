@@ -15,11 +15,10 @@ class SessaoService:
 
 
     def insert_sessao(self, participante_ui):
-        texto = participante_ui.cb_tipo_evento_sessao.currentText()
         if participante_ui.cb_tipo_evento_sessao.currentText() != 'Selecione o evento' and participante_ui.txt_tema_sessao is not None:
-            participante = self.sessao_repository.select_Evento_by_name(participante_ui.cb_tipo_evento_sessao.currentText())
+            participante = self.evento_repository.select_evento_by_nome(participante_ui.cb_tipo_evento_sessao.currentText())
             try:
-                self.sessao_repository.insert_sessao(participante_ui.select_evento)
+                self.sessao_repository.insert_sessao(participante_ui.select_evento, participante)
                 QMessageBox.information(participante_ui, 'Sessoes', 'Sessao criada com sucesso!')
             except Exception as e:
                 QMessageBox.warning(participante_ui, 'Sessoes', f'Erro ao cadastrar sessão! \nErro: {e}')

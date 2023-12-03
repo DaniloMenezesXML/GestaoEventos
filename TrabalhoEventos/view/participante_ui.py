@@ -19,16 +19,13 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QHeaderView
     QLabel, QLineEdit, QMainWindow, QPushButton,
     QSizePolicy, QSpacerItem, QTabWidget, QTableWidget,
     QTableWidgetItem, QVBoxLayout, QWidget)
-import TrabalhoEventos.view.resource_rc
+import icon_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(836, 706)
-        icon = QIcon()
-        icon.addFile(u"image: url(:/icon/MicrosoftTeams-image.png)", QSize(), QIcon.Normal, QIcon.Off)
-        MainWindow.setWindowIcon(icon)
+        MainWindow.resize(835, 744)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout_5 = QVBoxLayout(self.centralwidget)
@@ -72,8 +69,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.addWidget(self.btn_desinscrever_participante)
 
         self.cb_filtrar_evento = QComboBox(self.widget_5)
+        self.cb_filtrar_evento.addItem("")
         self.cb_filtrar_evento.setObjectName(u"cb_filtrar_evento")
-        self.cb_filtrar_evento.setEditable(True)
+        self.cb_filtrar_evento.setStyleSheet(u"")
+        self.cb_filtrar_evento.setEditable(False)
 
         self.verticalLayout_6.addWidget(self.cb_filtrar_evento)
 
@@ -256,8 +255,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.txt_horario_sessao)
 
         self.cb_tipo_evento_sessao = QComboBox(self.widget_3)
+        self.cb_tipo_evento_sessao.addItem("")
         self.cb_tipo_evento_sessao.setObjectName(u"cb_tipo_evento_sessao")
-        self.cb_tipo_evento_sessao.setEditable(True)
+        self.cb_tipo_evento_sessao.setEditable(False)
 
         self.verticalLayout.addWidget(self.cb_tipo_evento_sessao)
 
@@ -305,7 +305,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -315,7 +315,8 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.btn_inscrever_participante.setText(QCoreApplication.translate("MainWindow", u"Inscrever Participante", None))
         self.btn_desinscrever_participante.setText(QCoreApplication.translate("MainWindow", u"Desinscrever Participante", None))
-        self.cb_filtrar_evento.setCurrentText(QCoreApplication.translate("MainWindow", u"Filtrar por Evento", None))
+        self.cb_filtrar_evento.setItemText(0, QCoreApplication.translate("MainWindow", u"Filtrar por Evento", None))
+
         ___qtablewidgetitem = self.tb_lista_participante_inicio.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Nome do Participante", None));
         ___qtablewidgetitem1 = self.tb_lista_participante_inicio.horizontalHeaderItem(1)
@@ -350,6 +351,8 @@ class Ui_MainWindow(object):
         self.lbl_tema_sessao.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Tema da Sess\u00e3o</span></p></body></html>", None))
         self.lbl_palestrante_sessao.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Palestrante da Sess\u00e3o</span></p></body></html>", None))
         self.lbl_horario_sessao.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Hor\u00e1rio da Sess\u00e3o</span></p></body></html>", None))
+        self.cb_tipo_evento_sessao.setItemText(0, QCoreApplication.translate("MainWindow", u"Selecione o Evento", None))
+
         self.cb_tipo_evento_sessao.setCurrentText(QCoreApplication.translate("MainWindow", u"Selecione o Evento", None))
         ___qtablewidgetitem11 = self.tb_lista_sessao_criar_sessao.horizontalHeaderItem(0)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Tema da Sess\u00e3o", None));

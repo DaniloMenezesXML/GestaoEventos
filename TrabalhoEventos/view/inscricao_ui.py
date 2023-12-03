@@ -18,16 +18,12 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QHeaderView,
     QLabel, QLineEdit, QPushButton, QSizePolicy,
     QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
-import TrabalhoEventos.view.resource_rc
 
 class Ui_inscricao(object):
     def setupUi(self, inscricao):
         if not inscricao.objectName():
             inscricao.setObjectName(u"inscricao")
-        inscricao.resize(562, 608)
-        icon = QIcon()
-        icon.addFile(u"image: url(:/icon/MicrosoftTeams-image.png)", QSize(), QIcon.Normal, QIcon.Off)
-        inscricao.setWindowIcon(icon)
+        inscricao.resize(699, 615)
         self.verticalLayout_2 = QVBoxLayout(inscricao)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.widget = QWidget(inscricao)
@@ -55,25 +51,29 @@ class Ui_inscricao(object):
         self.verticalLayout.addWidget(self.txt_email_participante)
 
         self.cb_sessao = QComboBox(self.widget)
+        self.cb_sessao.addItem("")
         self.cb_sessao.setObjectName(u"cb_sessao")
-        self.cb_sessao.setEditable(True)
+        self.cb_sessao.setEditable(False)
 
         self.verticalLayout.addWidget(self.cb_sessao)
 
         self.tb_sessao = QTableWidget(self.widget)
-        if (self.tb_sessao.columnCount() < 2):
-            self.tb_sessao.setColumnCount(2)
-        font = QFont()
-        font.setBold(False)
+        if (self.tb_sessao.columnCount() < 4):
+            self.tb_sessao.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
         __qtablewidgetitem.setTextAlignment(Qt.AlignCenter);
-        __qtablewidgetitem.setFont(font);
         self.tb_sessao.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         __qtablewidgetitem1.setTextAlignment(Qt.AlignCenter);
         self.tb_sessao.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        __qtablewidgetitem2.setTextAlignment(Qt.AlignCenter);
+        self.tb_sessao.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        __qtablewidgetitem3.setTextAlignment(Qt.AlignCenter);
+        self.tb_sessao.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.tb_sessao.setObjectName(u"tb_sessao")
-        self.tb_sessao.horizontalHeader().setDefaultSectionSize(175)
+        self.tb_sessao.horizontalHeader().setDefaultSectionSize(165)
 
         self.verticalLayout.addWidget(self.tb_sessao)
 
@@ -95,11 +95,17 @@ class Ui_inscricao(object):
         inscricao.setWindowTitle(QCoreApplication.translate("inscricao", u"Dialog", None))
         self.lbl_nome_participante.setText(QCoreApplication.translate("inscricao", u"<html><head/><body><p><span style=\" font-size:12pt;\">Nome do Participante</span></p></body></html>", None))
         self.lbl_email_participante.setText(QCoreApplication.translate("inscricao", u"<html><head/><body><p><span style=\" font-size:12pt;\">E-mail do Participante</span></p></body></html>", None))
-        self.cb_sessao.setCurrentText(QCoreApplication.translate("inscricao", u"Selecione", None))
+        self.cb_sessao.setItemText(0, QCoreApplication.translate("inscricao", u"Selecione a Sess\u00e3o", None))
+
+        self.cb_sessao.setCurrentText(QCoreApplication.translate("inscricao", u"Selecione a Sess\u00e3o", None))
         ___qtablewidgetitem = self.tb_sessao.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("inscricao", u"Descri\u00e7\u00e3o Sess\u00e3o", None));
+        ___qtablewidgetitem.setText(QCoreApplication.translate("inscricao", u"Evento", None));
         ___qtablewidgetitem1 = self.tb_sessao.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("inscricao", u"Hor\u00e1rio Sess\u00e3o", None));
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("inscricao", u" Palestrante Sess\u00e3o", None));
+        ___qtablewidgetitem2 = self.tb_sessao.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("inscricao", u"Tema Sess\u00e3o", None));
+        ___qtablewidgetitem3 = self.tb_sessao.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("inscricao", u"Hor\u00e1rio Sess\u00e3o", None));
         self.btn_confirmar.setText(QCoreApplication.translate("inscricao", u"Confirmar", None))
     # retranslateUi
 

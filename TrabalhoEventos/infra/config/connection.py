@@ -1,11 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from infra.config.base import Base
+from TrabalhoEventos.infra.config.base import Base
 
 
 class DBConnectionHandler:
     def __init__(self):
-        self.__connection_string = 'sqlite:///emprestimo.db'
+        self.__connection_string = 'sqlite:///evento.db'
         self.__engine = self.__create_database_engine()
         self.create_table()
         self.session = None

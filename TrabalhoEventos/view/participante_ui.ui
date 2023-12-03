@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>836</width>
+    <width>835</width>
     <height>744</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
        <item>
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="inicio">
           <attribute name="title">
@@ -78,12 +78,17 @@
               </item>
               <item>
                <widget class="QComboBox" name="cb_filtrar_evento">
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <property name="editable">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
-                <property name="currentText">
-                 <string>Filtrar por Evento</string>
-                </property>
+                <item>
+                 <property name="text">
+                  <string>Filtrar por Evento</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item>
@@ -315,11 +320,16 @@
               <item>
                <widget class="QComboBox" name="cb_tipo_evento_sessao">
                 <property name="editable">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                 <property name="currentText">
                  <string>Selecione o Evento</string>
                 </property>
+                <item>
+                 <property name="text">
+                  <string>Selecione o Evento</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item>
