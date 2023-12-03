@@ -1,9 +1,10 @@
 from PySide6.QtWidgets import QMessageBox
 
-from infra.entities import evento
-from infra.repository import evento_repository
-
-from services.main_window_service import MainWindowService
+from TrabalhoEventos.infra.entities.evento import Evento
+from TrabalhoEventos.infra.repository.evento_repository import EventoRepository
+from TrabalhoEventos.infra.repository.participante_repository import ParticipanteRepository
+from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
+from TrabalhoEventos.services.main_window_service import MainWindowService
 
 
 class EventoService:
