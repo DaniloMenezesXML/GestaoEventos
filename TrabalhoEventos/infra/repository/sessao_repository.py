@@ -35,7 +35,8 @@ class SessaoRepository:
         with DBConnectionHandler() as db:
             sessoes = (db.session.query(Sessao, Participante, Evento)
                           .join(Participante, Participante.id == Sessao.participante_id)
-                          .join(Evento, Evento.id == Sessao.evento_id))
+                          .join(Evento, Evento.id == Sessao.evento_id)
+                       .filter(Sessao.data_sessao.is_(None)).all())
             return sessoes
 
     @staticmethod

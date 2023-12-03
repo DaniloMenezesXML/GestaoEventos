@@ -9,7 +9,7 @@ class Evento(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     nome: Mapped[str] = mapped_column(nullable=False)
     data_evento: Mapped[datetime] = mapped_column(nullable=False)
-    lista_participante: Mapped[list] = mapped_column(nullable=False)
+    #lista_participante: Mapped[list] = mapped_column(nullable=False)
     ativo: Mapped[bool] = mapped_column(default=True, nullable=False)
     sessao = relationship("Sessao", back_populates="evento", cascade="save-update")
 

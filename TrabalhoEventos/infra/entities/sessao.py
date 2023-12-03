@@ -9,13 +9,12 @@ class Sessao(Base):
 
     participante_id: Mapped[int] = mapped_column(ForeignKey("participante.id"), primary_key=True)
     evento_id: Mapped[int] = mapped_column(ForeignKey("evento.id"), primary_key=True)
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     tema: Mapped[str] = mapped_column(nullable=False)
     palestrante: Mapped[str] = mapped_column(nullable=False)
     data_sessao: Mapped[datetime] = mapped_column(nullable=False)
 
-    participante = relationship("Participante", back_populates= "sessão")
-    evento = relationship("Evento", back_populates= "sessão")
+    participante = relationship("Participante", back_populates= "sessao")
+    evento = relationship("Evento", back_populates= "sessao")
 
     def __repr__(self):
         return (f'Sessao [tema= {self.nome}, palestrante={self.palestrante},'

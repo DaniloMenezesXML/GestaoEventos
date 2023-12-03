@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QHeaderView
     QLabel, QLineEdit, QMainWindow, QPushButton,
     QSizePolicy, QSpacerItem, QTabWidget, QTableWidget,
     QTableWidgetItem, QVBoxLayout, QWidget)
-import icon_rc
+from TrabalhoEventos.view import resource_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -305,7 +305,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

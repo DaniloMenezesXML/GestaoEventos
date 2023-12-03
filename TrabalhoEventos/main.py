@@ -2,14 +2,13 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
 from PySide6.QtGui import QPalette, QColor, Qt
 
-from services.main_window_service import MainWindowService
-from view.participante_ui import Ui_MainWindow
-from view.inscricao_ui import Ui_inscricao
-from infra.config.connection import DBConnectionHandler
-
-from services.evento_service import EventoService
-from services.participante_service import ParticipanteService
-from services.sessao_service import SessaoService
+from TrabalhoEventos.services.main_window_service import MainWindowService
+from TrabalhoEventos.view.participante_ui import Ui_MainWindow
+from TrabalhoEventos.view.inscricao_ui import Ui_inscricao
+from TrabalhoEventos.infra.config.connection import DBConnectionHandler
+from TrabalhoEventos.services.evento_service import EventoService
+from TrabalhoEventos.services.participante_service import ParticipanteService
+from TrabalhoEventos.services.sessao_service import SessaoService
 
 class Mainwindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -25,6 +24,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.participante_service = ParticipanteService()
         self.main_window_service.populate_table_evento(self)
         self.main_window_service.populate_table_sessao(self)
+        self.main_window_service.populate_table_lista_participante(self)
 
         self.btn_inscrever_participante.clicked.connect(self.inscricao_participante)
         self.btn_desinscrever_participante.clicked.connect(self.desinscrever_participante)
