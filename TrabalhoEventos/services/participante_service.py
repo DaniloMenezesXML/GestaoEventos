@@ -30,7 +30,7 @@ class ParticipanteService:
 
 
 
-    def select_participante(self, participante_ui):
+    def select_participante_by_email(self, participante_ui):
         if participante_ui.btn_consultar_email.text() == 'Consultar':
             participante_ui.txt_email_participante_agenda.setText('')
             participante_ui.txt_email_participante_agenda.setReadOnly(False)
