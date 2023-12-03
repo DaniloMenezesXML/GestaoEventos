@@ -18,7 +18,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         data_base = DBConnectionHandler()
 
         self.main_window_service = MainWindowService()
-        self.uniforme_to_update = None
+        self.select_evento = None
         self.sessao_service = SessaoService()
         self.evento_service = EventoService()
         self.participante_service = ParticipanteService()
@@ -29,9 +29,9 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.btn_inscrever_participante.clicked.connect(self.inscricao_participante)
         self.btn_desinscrever_participante.clicked.connect(self.desinscrever_participante)
 
-        self.btn_criar_sessao.clicked.connect(self.criar_sessao)
+        #self.btn_criar_sessao.clicked.connect(self.criar_sessao)
 
-        self.btn_criar_evento.clicked.connect(self.criar_evento)
+        #self.btn_criar_evento.clicked.connect(self.criar_evento)
 
         self.btn_consultar_email.clicked.connect(self.consultar_email)
 
@@ -70,8 +70,6 @@ class InscricaoDialog(QDialog, Ui_inscricao):
         self.evento_service = EventoService()
         self.parcipante_service = ParticipanteService()
         self.main_window_service.populate_sessoes_combo(self)
-
-        self.btn_consultar_email.clicked.connect(self.get_participante)
 
     def get_funcionario(self):
         self.parcipante_service.select_participante_by_email(self)
