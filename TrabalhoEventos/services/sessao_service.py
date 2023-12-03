@@ -1,9 +1,9 @@
 from PySide6.QtWidgets import QMessageBox
 
-from infra.repository.sessao_repository import SessaoRepository
-from infra.repository.evento_repository import EventoRepository
-from infra.repository.participante_repository import ParticipanteRepository
-from services.main_window_service import MainWindowService
+from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
+from TrabalhoEventos.infra.repository.evento_repository import EventoRepository
+from TrabalhoEventos.infra.repository.participante_repository import ParticipanteRepository
+from TrabalhoEventos.services.main_window_service import MainWindowService
 
 
 class SessaoService:
@@ -22,7 +22,7 @@ class SessaoService:
                 self.sessao_repository.insert_sessao(participante_ui.select_evento)
                 QMessageBox.information(participante_ui, 'Sessoes', 'Sessao criada com sucesso!')
             except Exception as e:
-            QMessageBox.warning(participante_ui, 'Sessoes', f'Erro ao cadastrar sessão! \nErro: {e}')
+                QMessageBox.warning(participante_ui, 'Sessoes', f'Erro ao cadastrar sessão! \nErro: {e}')
 
 
 
