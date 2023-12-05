@@ -23,7 +23,7 @@ class EventoService:
         try:
             self.evento_repository.insert_one_evento(evento)
             main_window.txt_nome_evento.setText('')
-            main_window.txt_data_evento.setText('__/__/____')
+            main_window.txt_data_evento.setText('')
             main_window.txt_horario_evento.setText('')
 
             self.service_main_window.populate_table_evento(main_window)

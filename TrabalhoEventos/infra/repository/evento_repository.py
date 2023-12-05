@@ -1,3 +1,6 @@
+from datetime import datetime
+from sqlite3 import Date
+
 from TrabalhoEventos.infra.config.connection import DBConnectionHandler
 from TrabalhoEventos.infra.entities.evento import Evento
 
@@ -36,8 +39,17 @@ class EventoRepository():
     @staticmethod
     def insert_one_evento(evento):
         with DBConnectionHandler() as db:
-            db.session.add(evento)
-            db.session.commit()
+            eve = Evento()
+            data = evento.data_evento
+            data = datetime.strptime(data, '%d/%m/%Y').date()
+            hora = evento.horario_evento
+            eve.data_evento = data
+            eve.horario_evento = datetime.strptime(hora, '%H:%M').time()
+            try:
+                db.session.add(eve)
+                db.session.commit()
+            except Exception as e:
+                print(e)
 
     @staticmethod
     def insert_many_evento(evento):
