@@ -14,383 +14,353 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_5">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <widget class="QWidget" name="widget" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+     <widget class="QWidget" name="widget_6" native="true">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image: url(:/icon/MicrosoftTeams-image.png)</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QTabWidget" name="tabWidget">
-         <property name="currentIndex">
-          <number>3</number>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
-         <widget class="QWidget" name="inicio">
-          <attribute name="title">
-           <string>Início</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_15">
-           <item>
-            <widget class="QWidget" name="widget_6" native="true">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>200</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">image: url(:/icon/MicrosoftTeams-image.png)</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_14">
-              <item>
-               <spacer name="verticalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>10</width>
-                  <height>254</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="widget_5" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_6">
-              <item>
-               <widget class="QPushButton" name="btn_inscrever_participante">
-                <property name="text">
-                 <string>Inscrever Participante</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_desinscrever_participante">
-                <property name="text">
-                 <string>Desinscrever Participante</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="cb_filtrar_evento">
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="editable">
-                 <bool>false</bool>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Filtrar por Evento</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <widget class="QTableWidget" name="tb_lista_participante_inicio">
-                <attribute name="horizontalHeaderDefaultSectionSize">
-                 <number>175</number>
-                </attribute>
-                <column>
-                 <property name="text">
-                  <string>Nome do Participante</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Email do Participante</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Evento</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Sessão</string>
-                 </property>
-                </column>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="agenda">
-          <attribute name="title">
-           <string>Agenda</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_12">
-           <item>
-            <widget class="QWidget" name="widget_4" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_11">
-              <item>
-               <widget class="QLabel" name="lbl_email_participante">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;E-mail do Participante&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <widget class="QLineEdit" name="txt_email_participante_agenda"/>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="btn_consultar_email">
-                  <property name="text">
-                   <string>Consultar</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <widget class="QTableWidget" name="tb_lista_sessao_agenda">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>false</bool>
-                </property>
-                <attribute name="horizontalHeaderDefaultSectionSize">
-                 <number>175</number>
-                </attribute>
-                <column>
-                 <property name="text">
-                  <string>Nome do Participante</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Evento</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Sessão</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Horário da Sessao</string>
-                 </property>
-                </column>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="criar_evento">
-          <attribute name="title">
-           <string>Criar Evento</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
-           <item>
-            <widget class="QWidget" name="widget_2" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout_4">
-              <item>
-               <widget class="QLabel" name="lbl_nome_evento">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Nome do Evento&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="txt_nome_evento"/>
-              </item>
-              <item>
-               <widget class="QLabel" name="lbl_data_evento">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Data do Evento&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="txt_data_evento"/>
-              </item>
-              <item>
-               <widget class="QLabel" name="lbl_horario_evento">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Horário do Evento&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="txt_horario_evento"/>
-              </item>
-              <item>
-               <widget class="QTableWidget" name="tableWidget">
-                <attribute name="horizontalHeaderDefaultSectionSize">
-                 <number>175</number>
-                </attribute>
-                <column>
-                 <property name="text">
-                  <string>Nome do Evento</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Data do Evento</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Horário do Evento</string>
-                 </property>
-                </column>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_3">
-                <item>
-                 <spacer name="horizontalSpacer_2">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>548</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="btn_criar_evento">
-                  <property name="text">
-                   <string>Criar</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="criar_sessao">
-          <attribute name="title">
-           <string>Criar Sessão</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_10">
-           <item>
-            <widget class="QWidget" name="widget_3" native="true">
-             <layout class="QVBoxLayout" name="verticalLayout">
-              <item>
-               <widget class="QLabel" name="lbl_tema_sessao">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Tema da Sessão&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="txt_tema_sessao"/>
-              </item>
-              <item>
-               <widget class="QLabel" name="lbl_palestrante_sessao">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Palestrante da Sessão&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="txt_palestrante_sessao"/>
-              </item>
-              <item>
-               <widget class="QLabel" name="lbl_horario_sessao">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Horário da Sessão&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="txt_horario_sessao"/>
-              </item>
-              <item>
-               <widget class="QComboBox" name="cb_tipo_evento_sessao">
-                <property name="editable">
-                 <bool>false</bool>
-                </property>
-                <property name="currentText">
-                 <string>Selecione o Evento</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Selecione o Evento</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item>
-               <widget class="QTableWidget" name="tb_lista_sessao_criar_sessao">
-                <attribute name="horizontalHeaderDefaultSectionSize">
-                 <number>175</number>
-                </attribute>
-                <column>
-                 <property name="text">
-                  <string>Tema da Sessão</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Palestrante da Sessão</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Horário da Sessão</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Evento</string>
-                 </property>
-                </column>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
-                <item>
-                 <spacer name="horizontalSpacer_3">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>548</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="btn_criar_sessao">
-                  <property name="text">
-                   <string>Criar</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </widget>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>10</width>
+           <height>179</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>3</number>
+      </property>
+      <widget class="QWidget" name="tab_inicio">
+       <attribute name="title">
+        <string>Início</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QPushButton" name="btn_inscrever_participante">
+          <property name="text">
+           <string>Inscrever Participante</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_desinscrever_participante">
+          <property name="text">
+           <string>Desinscrever Participante</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cb_filtrar_evento">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="editable">
+           <bool>false</bool>
+          </property>
+          <item>
+           <property name="text">
+            <string>Filtrar por Evento</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tb_lista_participante_inicio">
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>175</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Nome do Participante</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Email do Participante</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Evento</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Sessão</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_agenda">
+       <attribute name="title">
+        <string>Agenda</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="lbl_email_participante">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;E-mail do Participante&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLineEdit" name="txt_email_participante_agenda"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_consultar_email">
+            <property name="text">
+             <string>Consultar</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tb_lista_sessao_agenda">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>175</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Nome do Participante</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Evento</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Sessão</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Horário da Sessao</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_criar_evento">
+       <attribute name="title">
+        <string>Criar Evento</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="lbl_nome_evento">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Nome do Evento&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_nome_evento"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_data_evento">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Data do Evento&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_data_evento"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_horario_evento">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Horário do Evento&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_horario_evento"/>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableWidget">
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>175</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Nome do Evento</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Data do Evento</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Horário do Evento</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_criar_evento">
+            <property name="text">
+             <string>Criar</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_criar_sessao">
+       <attribute name="title">
+        <string>Criar Sessão</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="lbl_tema_sessao">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Tema da Sessão&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_tema_sessao"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_palestrante_sessao">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Palestrante da Sessão&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_palestrante_sessao"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="lbl_horario_sessao">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Horário da Sessão&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="txt_horario_sessao"/>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cb_tipo_evento_sessao">
+          <property name="editable">
+           <bool>false</bool>
+          </property>
+          <property name="currentText">
+           <string>Selecione o Evento</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Selecione o Evento</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tb_lista_sessao_criar_sessao">
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>175</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Tema da Sessão</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Palestrante da Sessão</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Horário da Sessão</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Evento</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_criar_sessao">
+            <property name="text">
+             <string>Criar</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>

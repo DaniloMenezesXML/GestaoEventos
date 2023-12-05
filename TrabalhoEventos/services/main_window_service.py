@@ -32,7 +32,7 @@ class MainWindowService:
         for linha, evento in enumerate(lista_evento):
             main_window.tableWidget.setItem(linha, 0, QTableWidgetItem(evento.nome))
             main_window.tableWidget.setItem(linha, 1, QTableWidgetItem(evento.data_evento.strftime('%d/%m/%Y')))
-            main_window.tableWidget.setItem(linha, 2, QTableWidgetItem(evento.data_evento.strftime('%H:%M:%S')))
+            main_window.tableWidget.setItem(linha, 2, QTableWidgetItem(evento.horario_evento.strftime('%H:%M:%S')))
 
     def populate_table_lista_participante(self, main_window):
         main_window.tb_lista_participante_inicio.setRowCount(0)

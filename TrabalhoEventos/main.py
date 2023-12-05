@@ -29,9 +29,9 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.btn_inscrever_participante.clicked.connect(self.inscricao_participante)
         self.btn_desinscrever_participante.clicked.connect(self.desinscrever_participante)
 
-        #self.btn_criar_sessao.clicked.connect(self.criar_sessao)
+        self.btn_criar_sessao.clicked.connect(self.criar_sessao)
 
-        #self.btn_criar_evento.clicked.connect(self.criar_evento)
+        self.btn_criar_evento.clicked.connect(self.criar_evento)
 
         self.btn_consultar_email.clicked.connect(self.consultar_email)
 
@@ -48,12 +48,12 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.participante_service.select_participante_by_email(self)
 
     def inscricao_participante(self):
-        self.inscricao_dialog = InscricaoDialog(self)
-        self.inscricao_dialog.finished.connect(self.on_inscricao_closed)
+        self.inscricao_dialog = InscricaoDialog()
+        #self.inscricao_dialog.finished.connect(self.on_inscricao_closed)
         self.inscricao_dialog.show()
-        self.hide()
-        self.inscricao_dialog.finished.connect(
-            lambda: self.main_window_service.populate_table_lista_participante(self))
+        #self.hide()
+        #self.inscricao_dialog.finished.connect(
+            #lambda: self.main_window_service.populate_table_lista_participante(self))
 
 
     def on_inscricao_closed(self):
@@ -64,7 +64,7 @@ class InscricaoDialog(QDialog, Ui_inscricao):
         super(InscricaoDialog, self).__init__(parent)
         self.setupUi(self)
         self.selected_participante = None
-        self.eventoz = []
+        self.eventos = []
         self.main_window_service = MainWindowService()
         self.sessao_service = SessaoService()
         self.evento_service = EventoService()

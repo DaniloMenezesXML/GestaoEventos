@@ -8,7 +8,6 @@ class Participante(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     nome: Mapped[str] = mapped_column(nullable=False)
     email: Mapped[str] = mapped_column(nullable=False)
-    #lista_inscritos: Mapped[list] = mapped_column(nullable=False)
     sessao = relationship("Sessao", back_populates="participante", cascade="save-update")
 
     def __repr__(self):
