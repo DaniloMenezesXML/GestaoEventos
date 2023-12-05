@@ -11,5 +11,4 @@ class Participante(Base):
     sessao = relationship("Sessao", back_populates="participante", cascade="save-update")
 
     def __repr__(self):
-        return (f'Participante [nome= {self.nome}, e-mail= {self.email},'
-                f' eventos inscritos{self.lista_inscritos}]')
+        return (f'Participante [nome= {self.nome}, e-mail= {self.email}]')
