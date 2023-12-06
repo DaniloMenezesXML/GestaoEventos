@@ -20,7 +20,7 @@ class ParticipanteService:
         participante.email = inscricao_ui.txt_email_participante.text()
         participante.ativo = True
         try:
-            self.participante_repository.insert_one_funcionario(participante)
+            self.participante_repository.insert_one_participante(participante)
             inscricao_ui.txt_nome_participante.setText('')
             inscricao_ui.txt_email_participante.setText('')
             self.service_main_window.populate_table_participante(inscricao_ui)
