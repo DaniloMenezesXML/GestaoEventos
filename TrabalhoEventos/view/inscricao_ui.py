@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-
-################################################################################
-## Form generated from reading UI file 'inscricao_ui.ui'
-##
-## Created by: Qt User Interface Compiler version 6.6.1
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -19,12 +9,16 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QHBoxLayout,
     QHeaderView, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QTableWidget, QTableWidgetItem, QVBoxLayout,
     QWidget)
+from TrabalhoEventos.view import resource_rc
 
 class Ui_inscricao(object):
     def setupUi(self, inscricao):
         if not inscricao.objectName():
             inscricao.setObjectName(u"inscricao")
         inscricao.resize(699, 615)
+        icon = QIcon()
+        icon.addFile(u":/icon/MicrosoftTeams-image.png", QSize(), QIcon.Normal, QIcon.Off)
+        inscricao.setWindowIcon(icon)
         self.verticalLayout_2 = QVBoxLayout(inscricao)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.widget = QWidget(inscricao)
