@@ -1,5 +1,5 @@
 from __future__ import  annotations
-from datetime import datetime
+from datetime import date
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from TrabalhoEventos.infra.config.base import Base
@@ -11,7 +11,7 @@ class Sessao(Base):
     evento_id: Mapped[int] = mapped_column(ForeignKey("evento.id"), primary_key=True)
     tema: Mapped[str] = mapped_column(nullable=False)
     palestrante: Mapped[str] = mapped_column(nullable=False)
-    data_sessao: Mapped[datetime] = mapped_column(nullable=False)
+    data_sessao: Mapped[date] = mapped_column(nullable=False)
 
     participante = relationship("Participante", back_populates= "sessao")
     evento = relationship("Evento", back_populates= "sessao")

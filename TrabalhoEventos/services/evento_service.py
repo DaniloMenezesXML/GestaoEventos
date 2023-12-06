@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from PySide6.QtWidgets import QMessageBox
 
 from TrabalhoEventos.infra.entities.evento import Evento
@@ -19,6 +21,12 @@ class EventoService:
         evento.nome = main_window.txt_nome_evento.text()
         evento.data_evento = main_window.txt_data_evento.text()
         evento.horario_evento = main_window.txt_horario_evento.text()
+        data = evento.data_evento
+        data = datetime.strptime(data, '%d/%m/%Y').date()
+        hora = evento.horario_evento
+        hora = datetime.strptime(hora, '%H:%M').time()
+        evento.data_evento = data
+        evento.horario_evento = hora
 
         try:
             self.evento_repository.insert_one_evento(evento)

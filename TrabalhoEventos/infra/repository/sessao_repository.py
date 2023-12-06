@@ -21,9 +21,6 @@ class SessaoRepository:
             ses = Sessao()
             ses.evento_id = evento.id
             ses.participante_id = participante.id
-            today = datetime.now()
-            ses.data_sessao = today
-
             try:
                 db.session.add(ses)
                 db.session.commit()

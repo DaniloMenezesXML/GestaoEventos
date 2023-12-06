@@ -10,9 +10,9 @@ from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
 
 class MainWindowService:
     def __init__(self):
-        self.evento_repository = EventoRepository
-        self.participante_repository = ParticipanteRepository
-        self.sessao_repository = SessaoRepository
+        self.evento_repository = EventoRepository()
+        self.participante_repository = ParticipanteRepository()
+        self.sessao_repository = SessaoRepository()
 
     def populate_table_sessao(self, main_window):
         main_window.tb_lista_sessao_criar_sessao.setRowCount(0)
@@ -32,7 +32,7 @@ class MainWindowService:
         for linha, evento in enumerate(lista_evento):
             main_window.tableWidget.setItem(linha, 0, QTableWidgetItem(evento.nome))
             main_window.tableWidget.setItem(linha, 1, QTableWidgetItem(evento.data_evento.strftime('%d/%m/%Y')))
-            main_window.tableWidget.setItem(linha, 2, QTableWidgetItem(evento.horario_evento.strftime('%H:%M:%S')))
+            main_window.tableWidget.setItem(linha, 2, QTableWidgetItem(evento.horario_evento.strftime('%H:%M')))
 
     def populate_table_lista_participante(self, main_window):
         main_window.tb_lista_participante_inicio.setRowCount(0)

@@ -39,14 +39,8 @@ class EventoRepository():
     @staticmethod
     def insert_one_evento(evento):
         with DBConnectionHandler() as db:
-            eve = Evento()
-            data = evento.data_evento
-            data = datetime.strptime(data, '%d/%m/%Y').date()
-            hora = evento.horario_evento
-            eve.data_evento = data
-            eve.horario_evento = datetime.strptime(hora, '%H:%M').time()
             try:
-                db.session.add(eve)
+                db.session.add(evento)
                 db.session.commit()
             except Exception as e:
                 print(e)
