@@ -1,6 +1,3 @@
-from datetime import datetime
-from sqlite3 import Date
-
 from TrabalhoEventos.infra.config.connection import DBConnectionHandler
 from TrabalhoEventos.infra.entities.evento import Evento
 

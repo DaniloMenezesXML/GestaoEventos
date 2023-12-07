@@ -16,7 +16,7 @@ class SessaoRepository:
             return sessao
 
     @staticmethod
-    def insert_sessao(participante, evento):
+    def insert_sessao(self, participante, evento):
         with DBConnectionHandler() as db:
             ses = Sessao()
             ses.evento_id = evento.id
