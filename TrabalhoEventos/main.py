@@ -25,6 +25,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.main_window_service.populate_table_evento(self)
         self.main_window_service.populate_table_sessao(self)
         self.main_window_service.populate_table_lista_participante(self)
+        self.main_window_service.populate_eventos_ativos(self)
 
         self.btn_inscrever_participante.clicked.connect(self.inscricao_participante)
         self.btn_desinscrever_participante.clicked.connect(self.desinscrever_participante)
@@ -59,6 +60,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
             #lambda: self.main_window_service.populate_table_lista_participante(self))
     def cadastrar_participante(self):
         self.participante_service.insert_Participante(self)
+
 
     def on_inscricao_closed(self):
         self.show()

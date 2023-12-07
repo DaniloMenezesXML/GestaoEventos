@@ -50,6 +50,13 @@ class MainWindowService:
         for sessao in inscricao_ui.sessoes:
             inscricao_ui.cb_sessao.addItem(sessao.tema)
 
+    def populate_eventos_ativos(self, emprestimo_ui):
+        emprestimo_ui.cb_tipo_evento_sessao.clear()
+        emprestimo_ui.cb_tipo_evento_sessao.addItem('Selecione o evento')
+        eventos_ativos = self.evento_repository.select_all_evento()  # Adicione essa função ao seu repositório
+        for evento in eventos_ativos:
+            emprestimo_ui.cb_tipo_evento_sessao.addItem(evento.nome)
+
     def update_table_sessao(self, inscricao_ui):
         selected_item_index = inscricao_ui.cb_sessao.currentIndex()
         inscricao_ui.tb_sessao.setRowCount(0)
