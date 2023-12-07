@@ -18,7 +18,7 @@ class SessaoService:
             participante = self.evento_repository.select_evento_by_nome(participante_ui.cb_tipo_evento_sessao.currentText())
             participante_ui.select_evento = None
             try:
-                self.sessao_repository.insert_sessao(participante_ui.select_evento, participante, participante_ui.)
+                self.sessao_repository.insert_sessao(participante_ui.select_evento, participante, participante_ui)
                 QMessageBox.information(participante_ui, 'Sessoes', 'Sessao criada com sucesso!')
             except Exception as e:
                 QMessageBox.warning(participante_ui, 'Sessoes', f'Erro ao cadastrar sessão! \nErro: {e}')
