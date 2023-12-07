@@ -35,14 +35,13 @@ class MainWindowService:
             main_window.tableWidget.setItem(linha, 2, QTableWidgetItem(evento.horario_evento.strftime('%H:%M')))
 
     def populate_table_lista_participante(self, main_window):
-        main_window.tb_lista_participante_inicio.setRowCount(0)
-        lista_participante = self.sessao_repository.select_sessoes_ativos()
-        main_window.tb_lista_participante_inicio.setRowCount(len(lista_participante))
-        for linha, (ses, participante, evento) in enumerate(lista_participante):
-            main_window.tb_lista_participante_inicio.setItem(linha, 0, QTableWidgetItem(participante.nome))
-            main_window.tb_lista_participante_inicio.setItem(linha, 1, QTableWidgetItem(participante.email))
-            main_window.tb_lista_participante_inicio.setItem(linha, 2, QTableWidgetItem(evento.nome))
-            main_window.tb_lista_participante_inicio.setItem(linha, 3, QTableWidgetItem(ses.tema))
+        main_window.tb_participante.setRowCount(0)
+        lista_participante = self.participante_repository.select_all_participante()
+        main_window.tb_participante.setRowCount(len(lista_participante))
+        for linha, (participante) in enumerate(lista_participante):
+            main_window.tb_participante.setItem(linha, 0, QTableWidgetItem(participante.nome))
+            main_window.tb_participante.setItem(linha, 1, QTableWidgetItem(participante.email))
+
 
     def populate_sessoes_combo(self, inscricao_ui):
         inscricao_ui.cb_sessao.clear()

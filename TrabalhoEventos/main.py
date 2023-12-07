@@ -35,6 +35,9 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
 
         self.btn_consultar_email.clicked.connect(self.consultar_email)
 
+        self.btn_cadastrar.clicked.connect(self.cadastrar_participante)
+
+
     def criar_evento(self):
         self.evento_service.insert_evento(self)
 
@@ -54,7 +57,8 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         #self.hide()
         #self.inscricao_dialog.finished.connect(
             #lambda: self.main_window_service.populate_table_lista_participante(self))
-
+    def cadastrar_participante(self):
+        self.participante_service.insert_Participante(self)
 
     def on_inscricao_closed(self):
         self.show()

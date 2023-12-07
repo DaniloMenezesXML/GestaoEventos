@@ -23,7 +23,7 @@ class ParticipanteService:
             self.participante_repository.insert_one_participante(participante)
             inscricao_ui.txt_nome_participante.setText('')
             inscricao_ui.txt_email_participante.setText('')
-            self.service_main_window.populate_table_participante(inscricao_ui)
+            self.service_main_window.populate_table_lista_participante(inscricao_ui)
             QMessageBox.information(inscricao_ui, 'Participantes', f'Participante cadastrado com sucesso.')
         except Exception as e:
             QMessageBox.information(inscricao_ui, 'Participantes', f'Erro ao cadastrar Participante!\n Erro{e}')
