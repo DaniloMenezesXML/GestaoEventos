@@ -60,3 +60,7 @@ class SessaoRepository:
                 return sessoes
         except Exception as e:
             print(e)
+
+    def select_sessao_by_tema(tema_sesssao):
+        with DBConnectionHandler() as db :
+            return db.session.query(Sessao).filter(Sessao.tema == tema_sesssao).first()

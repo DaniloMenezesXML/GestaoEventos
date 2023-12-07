@@ -28,7 +28,25 @@ class ParticipanteService:
         except Exception as e:
             QMessageBox.information(inscricao_ui, 'Participantes', f'Erro ao cadastrar Participante!\n Erro{e}')
 
+    def insert_inscricao_participante(self, inscricao_ui):
+        if inscricao_ui.cb_sessao.currentText() != 'Selecione a sessão' and inscricao_ui.selected_participante is not None:
+            sessao = self.sessao_repository.select_sessao_by_tema(inscricao_ui.cb_sessao.currentText())
 
+
+            try:
+                self.participante_repository.insert_sessao(inscricao_ui.selected_participante, sessao)
+                QMessageBox.information(inscricao_ui, 'Emprestimos', 'Empréstimo cadastrado com sucesso')
+            except Exception as e:
+                QMessageBox.warning(inscricao_ui, 'Emprestimos', f'Erro ao cadastrar empréstimo cadastrado!\n Erro{e}')
+
+        elif inscricao_ui.cb_tipo_uniforme.currentText() == 'Selecione um item' and inscricao_ui.selected_funcionario is not None:
+            QMessageBox.warning(inscricao_ui, 'Emprestimos', f'Selecione um uniforme!')
+
+        elif inscricao_ui.cb_tipo_uniforme.currentText() != 'Selecione um item' and inscricao_ui.selected_funcionario is None:
+            QMessageBox.warning(inscricao_ui, 'Emprestimos', f'Selecione um funcionário!')
+
+        else:
+            QMessageBox.warning(inscricao_ui, 'Emprestimos', f'Selecione um funcionário e um uniforme!')
 
     def select_participante_by_email(self, participante_ui):
         if participante_ui.btn_consultar_email.text() == 'Consultar':
