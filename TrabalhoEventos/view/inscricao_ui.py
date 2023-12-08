@@ -19,6 +19,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QHBoxLayout,
     QHeaderView, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QTableWidget, QTableWidgetItem, QVBoxLayout,
     QWidget)
+from TrabalhoEventos.view import  resource_rc
 
 class Ui_inscricao(object):
     def setupUi(self, inscricao):
