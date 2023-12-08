@@ -7,8 +7,7 @@ from TrabalhoEventos.infra.config.base import Base
 class Sessao(Base):
     __tablename__ = 'sessao'
 
-    participante_id: Mapped[int] = mapped_column(ForeignKey("participante.id"), primary_key=True)
-    evento_id: Mapped[int] = mapped_column(ForeignKey("evento.id"), primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     tema: Mapped[str] = mapped_column(nullable=False)
     palestrante: Mapped[str] = mapped_column(nullable=False)
     horario_sessao: Mapped[time] = mapped_column(nullable=False)

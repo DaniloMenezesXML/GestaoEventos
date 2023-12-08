@@ -49,6 +49,18 @@
        <widget class="QLineEdit" name="txt_nome_participante"/>
       </item>
       <item>
+       <widget class="QComboBox" name="cb_evento">
+        <property name="currentText">
+         <string>Selecione o Evento</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Selecione o Evento</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
        <widget class="QComboBox" name="cb_sessao">
         <property name="editable">
          <bool>false</bool>
@@ -72,32 +84,20 @@
          <property name="text">
           <string>Evento</string>
          </property>
-         <property name="textAlignment">
-          <set>AlignCenter</set>
-         </property>
         </column>
         <column>
          <property name="text">
           <string> Palestrante Sessão</string>
-         </property>
-         <property name="textAlignment">
-          <set>AlignCenter</set>
          </property>
         </column>
         <column>
          <property name="text">
           <string>Tema Sessão</string>
          </property>
-         <property name="textAlignment">
-          <set>AlignCenter</set>
-         </property>
         </column>
         <column>
          <property name="text">
           <string>Horário Sessão</string>
-         </property>
-         <property name="textAlignment">
-          <set>AlignCenter</set>
          </property>
         </column>
        </widget>
