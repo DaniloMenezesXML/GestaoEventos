@@ -14,7 +14,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(Mainwindow, self).__init__()
         self.setupUi(self)
-        self.btn_inscrever_participante.clicked.connect(self.inscricao_participante)
+        self.btn_inscrever_participante.clicked.connect(self.inscricao_participante, )
         data_base = DBConnectionHandler()
 
         self.main_window_service = MainWindowService()
@@ -51,7 +51,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
     def consultar_email(self):
         self.participante_service.select_participante_by_email(self)
 
-    def inscricao_participante(self):
+    def inscricao_participante(self, id_evento):
         self.inscricao_dialog = InscricaoDialog()
         #self.inscricao_dialog.finished.connect(self.on_inscricao_closed)
         self.inscricao_dialog.show()

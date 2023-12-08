@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'participante_ui.ui'
+##
+## Created by: Qt User Interface Compiler version 6.6.1
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -9,16 +19,13 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QHeaderView
     QLabel, QLineEdit, QMainWindow, QPushButton,
     QSizePolicy, QSpacerItem, QTabWidget, QTableWidget,
     QTableWidgetItem, QVBoxLayout, QWidget)
-from TrabalhoEventos.view import resource_rc
+from TrabalhoEventos.view import  resource_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(835, 744)
-        icon = QIcon()
-        icon.addFile(u":/icon/MicrosoftTeams-image.png", QSize(), QIcon.Normal, QIcon.Off)
-        MainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
@@ -371,7 +378,11 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_participante), QCoreApplication.translate("MainWindow", u"Participante", None))
         self.lbl_nome_evento.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Nome do Evento</span></p></body></html>", None))
         self.lbl_data_evento.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Data do Evento</span></p></body></html>", None))
+        self.txt_data_evento.setInputMask(QCoreApplication.translate("MainWindow", u"99/99/9999", None))
+        self.txt_data_evento.setText(QCoreApplication.translate("MainWindow", u"//", None))
         self.lbl_horario_evento.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Hor\u00e1rio do Evento</span></p></body></html>", None))
+        self.txt_horario_evento.setInputMask(QCoreApplication.translate("MainWindow", u"99:99", None))
+        self.txt_horario_evento.setText(QCoreApplication.translate("MainWindow", u":", None))
         ___qtablewidgetitem10 = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Nome do Evento", None));
         ___qtablewidgetitem11 = self.tableWidget.horizontalHeaderItem(1)
@@ -383,6 +394,7 @@ class Ui_MainWindow(object):
         self.lbl_tema_sessao.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Tema da Sess\u00e3o</span></p></body></html>", None))
         self.lbl_palestrante_sessao.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Palestrante da Sess\u00e3o</span></p></body></html>", None))
         self.lbl_horario_sessao.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Hor\u00e1rio da Sess\u00e3o</span></p></body></html>", None))
+        self.txt_horario_sessao.setInputMask(QCoreApplication.translate("MainWindow", u"99:99", None))
         self.cb_tipo_evento_sessao.setItemText(0, QCoreApplication.translate("MainWindow", u"Selecione o Evento", None))
 
         self.cb_tipo_evento_sessao.setCurrentText(QCoreApplication.translate("MainWindow", u"Selecione o Evento", None))
