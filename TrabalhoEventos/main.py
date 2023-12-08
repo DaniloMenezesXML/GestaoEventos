@@ -9,6 +9,7 @@ from TrabalhoEventos.infra.config.connection import DBConnectionHandler
 from TrabalhoEventos.services.evento_service import EventoService
 from TrabalhoEventos.services.participante_service import ParticipanteService
 from TrabalhoEventos.services.sessao_service import SessaoService
+from TrabalhoEventos.services.inscricao_service import InscricaoService
 
 class Mainwindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
@@ -21,6 +22,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.select_evento = None
         self.sessao_service = SessaoService()
         self.evento_service = EventoService()
+        self.inscricao_service = InscricaoService()
         self.participante_service = ParticipanteService()
         self.main_window_service.populate_table_evento(self)
         self.main_window_service.populate_table_sessao(self)
