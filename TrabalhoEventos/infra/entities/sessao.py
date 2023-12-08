@@ -8,7 +8,7 @@ class Sessao(Base):
     __tablename__ = 'sessao'
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    evento_id: Mapped[int] = mapped_column(ForeignKey("evento.id"), primary_key=True)
+    evento_id: Mapped[int] = mapped_column(ForeignKey("evento.id"), foreign_key=True)
     tema: Mapped[str] = mapped_column(nullable=False)
     palestrante: Mapped[str] = mapped_column(nullable=False)
     horario_sessao: Mapped[time] = mapped_column(nullable=False)
