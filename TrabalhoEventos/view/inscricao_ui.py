@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'inscricao_ui.ui'
+##
+## Created by: Qt User Interface Compiler version 6.6.1
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
@@ -9,16 +19,12 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QDialog, QHBoxLayout,
     QHeaderView, QLabel, QLineEdit, QPushButton,
     QSizePolicy, QTableWidget, QTableWidgetItem, QVBoxLayout,
     QWidget)
-from TrabalhoEventos.view import resource_rc
 
 class Ui_inscricao(object):
     def setupUi(self, inscricao):
         if not inscricao.objectName():
             inscricao.setObjectName(u"inscricao")
         inscricao.resize(699, 615)
-        icon = QIcon()
-        icon.addFile(u":/icon/MicrosoftTeams-image.png", QSize(), QIcon.Normal, QIcon.Off)
-        inscricao.setWindowIcon(icon)
         self.verticalLayout_2 = QVBoxLayout(inscricao)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.widget = QWidget(inscricao)
@@ -55,6 +61,12 @@ class Ui_inscricao(object):
 
         self.verticalLayout.addWidget(self.txt_nome_participante)
 
+        self.cb_evento = QComboBox(self.widget)
+        self.cb_evento.addItem("")
+        self.cb_evento.setObjectName(u"cb_evento")
+
+        self.verticalLayout.addWidget(self.cb_evento)
+
         self.cb_sessao = QComboBox(self.widget)
         self.cb_sessao.addItem("")
         self.cb_sessao.setObjectName(u"cb_sessao")
@@ -66,16 +78,12 @@ class Ui_inscricao(object):
         if (self.tb_sessao.columnCount() < 4):
             self.tb_sessao.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
-        __qtablewidgetitem.setTextAlignment(Qt.AlignCenter);
         self.tb_sessao.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
-        __qtablewidgetitem1.setTextAlignment(Qt.AlignCenter);
         self.tb_sessao.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
-        __qtablewidgetitem2.setTextAlignment(Qt.AlignCenter);
         self.tb_sessao.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
-        __qtablewidgetitem3.setTextAlignment(Qt.AlignCenter);
         self.tb_sessao.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.tb_sessao.setObjectName(u"tb_sessao")
         self.tb_sessao.horizontalHeader().setDefaultSectionSize(165)
@@ -101,6 +109,9 @@ class Ui_inscricao(object):
         self.lbl_email_participante.setText(QCoreApplication.translate("inscricao", u"<html><head/><body><p><span style=\" font-size:12pt;\">E-mail do Participante</span></p></body></html>", None))
         self.btn_consultar.setText(QCoreApplication.translate("inscricao", u"Consultar", None))
         self.lbl_nome_participante.setText(QCoreApplication.translate("inscricao", u"<html><head/><body><p><span style=\" font-size:12pt;\">Nome do Participante</span></p></body></html>", None))
+        self.cb_evento.setItemText(0, QCoreApplication.translate("inscricao", u"Selecione o Evento", None))
+
+        self.cb_evento.setCurrentText(QCoreApplication.translate("inscricao", u"Selecione o Evento", None))
         self.cb_sessao.setItemText(0, QCoreApplication.translate("inscricao", u"Selecione a Sess\u00e3o", None))
 
         self.cb_sessao.setCurrentText(QCoreApplication.translate("inscricao", u"Selecione a Sess\u00e3o", None))
