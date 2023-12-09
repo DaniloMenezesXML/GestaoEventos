@@ -18,7 +18,7 @@ class SessaoService:
 
     def insert_sessao(self, main_window):
         sessao = Sessao()
-        sessao.nome = main_window.txt_nome_evento.text()
+        sessao.nome = main_window.txt_tema_sessao.text()
         sessao.data_evento = main_window.txt_data_evento.text()
         sessao.horario_sessao = main_window.txt_horario_evento.text()
 
