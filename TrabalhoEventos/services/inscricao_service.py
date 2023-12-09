@@ -1,7 +1,7 @@
 from datetime import datetime
 from PySide6.QtWidgets import QMessageBox
 
-from TrabalhoEventos.infra.entities.insricao import Inscricao
+from TrabalhoEventos.infra.entities.inscricao import Inscricao
 from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
 from TrabalhoEventos.infra.repository.inscricao_repository import InscricaoRepository
 from TrabalhoEventos.infra.repository.evento_repository import EventoRepository

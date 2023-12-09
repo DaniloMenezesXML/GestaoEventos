@@ -1,7 +1,7 @@
 from TrabalhoEventos.infra.config.base import Base
 from TrabalhoEventos.infra.config.connection import DBConnectionHandler
 from TrabalhoEventos.infra.entities.evento import Evento
-from TrabalhoEventos.infra.entities.insricao import Inscricao
+from TrabalhoEventos.infra.entities.inscricao import Inscricao
 from TrabalhoEventos.infra.entities.sessao import Sessao
 from TrabalhoEventos.infra.entities.participante import Participante
 
