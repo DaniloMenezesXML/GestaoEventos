@@ -22,7 +22,7 @@ class MainWindowService:
             if sessao.ativo:
                 main_window.tb_lista_sessao_criar_sessao.setItem(linha, 0, QTableWidgetItem(sessao.tema))
                 main_window.tb_lista_sessao_criar_sessao.setItem(linha, 1, QTableWidgetItem(sessao.palestrante))
-                main_window.tb_lista_sessao_criar_sessao.setItem(linha, 2, QTableWidgetItem(sessao.data_sessao.strftime('%H:%M:%S')))
+                main_window.tb_lista_sessao_criar_sessao.setItem(linha, 2, QTableWidgetItem(sessao.horario_sessao.strftime('%H:%M:%S')))
                 main_window.tb_lista_sessao_criar_sessao.setItem(linha, 3, QTableWidgetItem(sessao.evento))
 
     def populate_table_evento(self, main_window):
