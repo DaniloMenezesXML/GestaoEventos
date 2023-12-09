@@ -18,12 +18,9 @@ class SessaoService:
 
     def insert_sessao(self, main_window):
         sessao = Sessao()
-        sessao.nome = main_window.txt_nome_evento.text()
+        sessao.nome = main_window.txt_tema_sessao.text()
         sessao.data_evento = main_window.txt_data_evento.text()
-        sessao.horario_evento = main_window.txt_horario_evento.text()
-        hora = sessao.horario_evento
-        hora = datetime.strptime(hora, '%H:%M').time()
-        sessao.horario_evento = hora
+        sessao.horario_sessao = main_window.txt_horario_evento.text()
 
         try:
             self.evento_repository.insert_one_evento(sessao)
@@ -31,7 +28,7 @@ class SessaoService:
             main_window.txt_palestrante_sessao.setText('')
             main_window.txt_horario_sessao.setText('')
 
-            self.service_main_window.populate_table_evento(main_window)
+            self.service_main_window.populate_table_sessao(main_window)
             QMessageBox.information(main_window, 'Sessao', 'Sessao cadastrado com sucesso!')
         except Exception as e:
             QMessageBox.warning(main_window, 'Sessao', f'Erro ao cadastrar sessao! \nErro: {e}')

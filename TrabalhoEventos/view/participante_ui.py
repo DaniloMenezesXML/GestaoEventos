@@ -338,7 +338,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -398,6 +398,7 @@ class Ui_MainWindow(object):
         self.lbl_palestrante_sessao.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Palestrante da Sess\u00e3o</span></p></body></html>", None))
         self.lbl_horario_sessao.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Hor\u00e1rio da Sess\u00e3o</span></p></body></html>", None))
         self.txt_horario_sessao.setInputMask(QCoreApplication.translate("MainWindow", u"99:99", None))
+        self.txt_horario_sessao.setText(QCoreApplication.translate("MainWindow", u":", None))
         self.cb_tipo_evento_sessao.setItemText(0, QCoreApplication.translate("MainWindow", u"Selecione o Evento", None))
 
         self.cb_tipo_evento_sessao.setCurrentText(QCoreApplication.translate("MainWindow", u"Selecione o Evento", None))
