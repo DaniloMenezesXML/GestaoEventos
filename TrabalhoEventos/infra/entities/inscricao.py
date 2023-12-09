@@ -1,4 +1,5 @@
 from __future__ import  annotations
+
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 from TrabalhoEventos.infra.config.base import Base

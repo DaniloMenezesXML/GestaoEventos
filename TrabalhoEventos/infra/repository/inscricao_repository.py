@@ -1,11 +1,7 @@
-from TrabalhoEventos.infra.config.base import Base
 from TrabalhoEventos.infra.config.connection import DBConnectionHandler
-from TrabalhoEventos.infra.entities.evento import Evento
 from TrabalhoEventos.infra.entities.inscricao import Inscricao
-from TrabalhoEventos.infra.entities.sessao import Sessao
-from TrabalhoEventos.infra.entities.participante import Participante
 
-class InscricaoRepository(Base):
+class InscricaoRepository():
 
     @staticmethod
     def insert_inscricao(self, participante, evento, sessao):

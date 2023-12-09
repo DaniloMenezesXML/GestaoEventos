@@ -14,6 +14,7 @@ class Sessao(Base):
     horario_sessao: Mapped[time] = mapped_column(nullable=False)
 
     evento = relationship("Evento", back_populates= "sessao")
+    inscricao = relationship("Inscricao", back_populates="sessao", cascade="save-update")
 
     def __repr__(self):
         return (f'Sessao [tema= {self.nome}, palestrante={self.palestrante},'
