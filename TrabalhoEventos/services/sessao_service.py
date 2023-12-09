@@ -19,8 +19,8 @@ class SessaoService:
     def insert_sessao(self, main_window):
         sessao = Sessao()
         sessao.nome = main_window.txt_tema_sessao.text()
-        sessao.data_evento = main_window.txt_data_evento.text()
-        sessao.horario_sessao = main_window.txt_horario_evento.text()
+        sessao.palestrante = main_window.txt_palestrante_sessao.text()
+        sessao.horario_sessao = main_window.txt_horario_sessao.text()
 
         try:
             self.evento_repository.insert_one_evento(sessao)
