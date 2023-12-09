@@ -26,6 +26,9 @@ class Ui_inscricao(object):
         if not inscricao.objectName():
             inscricao.setObjectName(u"inscricao")
         inscricao.resize(699, 615)
+        icon = QIcon()
+        icon.addFile(u":/icon/MicrosoftTeams-image.png", QSize(), QIcon.Normal, QIcon.Off)
+        inscricao.setWindowIcon(icon)
         self.verticalLayout_2 = QVBoxLayout(inscricao)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.widget = QWidget(inscricao)
