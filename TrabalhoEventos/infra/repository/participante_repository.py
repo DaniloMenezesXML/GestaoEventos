@@ -18,8 +18,17 @@ class ParticipanteRepository():
     @staticmethod
     def select_participante_by_email(email_participante):
         with DBConnectionHandler() as db:
-            participante = db.session.query(Participante).filter(Participante.cpf == email_participante).first()
+            participante = db.session.query(Participante).filter(Participante.email == email_participante).first()
             return participante
+
+    @staticmethod
+    def select_participante_by_email_return_id(email_participante):
+        with DBConnectionHandler() as db:
+            participante = db.session.query(Participante).filter(Participante.email == email_participante).first()
+            if participante:
+                return participante.id
+            else:
+                return None
 
     @staticmethod
     def select_all_participante():

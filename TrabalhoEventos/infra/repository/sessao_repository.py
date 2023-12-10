@@ -63,6 +63,17 @@ class SessaoRepository:
         except Exception as e:
             print(e)
 
-    def select_sessao_by_tema(tema_sesssao):
-        with DBConnectionHandler() as db :
-            return db.session.query(Sessao).filter(Sessao.tema == tema_sesssao).first()
+    @staticmethod
+    def select_sessao_by_tema(tema_sessao):
+        with DBConnectionHandler() as db:
+            sessao = db.session.query(Sessao).filter(Sessao.tema == tema_sessao).first()
+            return sessao
+
+    @staticmethod
+    def select_sessao_by_tema_return_id(tema_sessao):
+        with DBConnectionHandler() as db:
+            sessao = db.session.query(Sessao).filter(Sessao.tema == tema_sessao).first()
+            if sessao:
+                return sessao.id
+            else:
+                return None

@@ -19,11 +19,21 @@ class MainWindowService:
         lista_sessao = self.sessao_repository.select_all_sessoes()
         main_window.tb_lista_sessao_criar_sessao.setRowCount(len(lista_sessao))
         for linha, sessao in enumerate(lista_sessao):
-            if sessao.ativo:
-                main_window.tb_lista_sessao_criar_sessao.setItem(linha, 0, QTableWidgetItem(sessao.tema))
-                main_window.tb_lista_sessao_criar_sessao.setItem(linha, 1, QTableWidgetItem(sessao.palestrante))
-                main_window.tb_lista_sessao_criar_sessao.setItem(linha, 2, QTableWidgetItem(sessao.horario_sessao.strftime('%H:%M:%S')))
-                main_window.tb_lista_sessao_criar_sessao.setItem(linha, 3, QTableWidgetItem(sessao.evento))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 0, QTableWidgetItem(sessao.tema))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 1, QTableWidgetItem(sessao.palestrante))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 2, QTableWidgetItem(sessao.horario_sessao.strftime('%H:%M')))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 3, QTableWidgetItem(sessao.nome_evento))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 4, QTableWidgetItem(sessao.evento_id))
+
+    def populate_tb_sessao(self, inscricao_ui):
+        inscricao_ui.tb_sessao.setRowCount(0)
+        lista_sessao = self.sessao_repository.select_all_sessoes()
+        inscricao_ui.tb_sessao.setRowCount(len(lista_sessao))
+        for linha, sessao in enumerate(lista_sessao):
+            inscricao_ui.tb_sessao.setItem(linha, 0, QTableWidgetItem(sessao.nome_evento))
+            inscricao_ui.tb_sessao.setItem(linha, 1, QTableWidgetItem(sessao.palestrante))
+            inscricao_ui.tb_sessao.setItem(linha, 2, QTableWidgetItem(sessao.tema))
+            inscricao_ui.tb_sessao.setItem(linha, 3, QTableWidgetItem(sessao.horario_sessao.strftime('%H:%M')))
 
     def populate_table_evento(self, main_window):
         main_window.tableWidget.setRowCount(0)
@@ -50,12 +60,19 @@ class MainWindowService:
         for sessao in inscricao_ui.sessoes:
             inscricao_ui.cb_sessao.addItem(sessao.tema)
 
-    def populate_eventos_ativos(self, emprestimo_ui):
-        emprestimo_ui.cb_tipo_evento_sessao.clear()
-        emprestimo_ui.cb_tipo_evento_sessao.addItem('Selecione o evento')
+    def populate_eventos_combo(self, inscricao_ui):
+        inscricao_ui.cb_evento.clear()
+        inscricao_ui.cb_evento.addItem('Selecione')
+        inscricao_ui.eventos = self.evento_repository.select_all_evento()
+        for evento in inscricao_ui.eventos:
+            inscricao_ui.cb_evento.addItem(evento.nome)
+
+    def populate_eventos_ativos(self, main_window):
+        main_window.cb_tipo_evento_sessao.clear()
+        main_window.cb_tipo_evento_sessao.addItem('Selecione o evento')
         eventos_ativos = self.evento_repository.select_all_evento()
         for evento in eventos_ativos:
-            emprestimo_ui.cb_tipo_evento_sessao.addItem(evento.nome)
+            main_window.cb_tipo_evento_sessao.addItem(evento.nome)
 
     def update_table_sessao(self, inscricao_ui):
         selected_item_index = inscricao_ui.cb_sessao.currentIndex()
