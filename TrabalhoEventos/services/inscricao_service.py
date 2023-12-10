@@ -2,6 +2,7 @@ from datetime import datetime
 from PySide6.QtWidgets import QMessageBox
 
 from TrabalhoEventos.infra.entities.inscricao import Inscricao
+from TrabalhoEventos.infra.entities.sessao import Sessao
 from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
 from TrabalhoEventos.infra.repository.inscricao_repository import InscricaoRepository
 from TrabalhoEventos.infra.repository.evento_repository import EventoRepository
@@ -25,19 +26,23 @@ class InscricaoService:
                 participante2 = self.sessao_repository.select_sessao_by_tema(inscricao_ui.cb_sessao.currentText())
                 inscricao_ui.select_sessao = None
                 inscricao = Inscricao()
-                inscricao.tema = inscricao_ui.txt_tema_sessao.text()
-                inscricao.palestrante = inscricao_ui.txt_palestrante_sessao.text()
-                inscricao.horario_sessao = inscricao_ui.txt_horario_sessao.text()
+                sessao = Sessao()
+                inscricao.tema = inscricao_ui.cb_sessao.currentText()
+                sessao.palestrante = inscricao_ui.txt_palestrante_sessao.text()
+                sessao.horario_sessao = inscricao_ui.txt_horario_sessao.text()
+                inscricao.palestrante = sessao.palestrante
+                inscricao.horario_sessao = sessao.horario_sessao
+                inscricao.nome_evento = inscricao_ui.cb_evento.currentText()
                 hora = inscricao.horario_sessao
                 hora = datetime.strptime(hora, '%H:%M').time()
                 inscricao.horario_sessao = hora
                 try:
-                    self.inscricao_repository.insert_sessao(inscricao)
+                    self.inscricao_repository.insert_inscricao(inscricao)
                     inscricao_ui.txt_tema_sessao.setText('')
                     inscricao_ui.txt_palestrante_sessao.setText('')
                     inscricao_ui.txt_horario_sessao.setText('')
 
-                    self.inscricao_repository.insert_sessao(inscricao_ui.select_evento, inscricao_ui.select_sessao, participante, participante2, inscricao_ui)
+                    self.inscricao_repository.insert_inscricao(inscricao_ui.select_evento, inscricao_ui.select_sessao, participante, participante2, inscricao_ui)
                     QMessageBox.information(inscricao_ui, 'Inscrição', 'Inscrição criada com sucesso!')
                 except Exception as e:
                     QMessageBox.warning(inscricao_ui, 'Inscrição', f'Erro ao cadastrar inscrição! \nErro: {e}')
