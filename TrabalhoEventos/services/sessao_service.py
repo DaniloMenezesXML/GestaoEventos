@@ -32,12 +32,9 @@ class SessaoService:
                 f"Inserting Sessao - Tema: {sessao.tema}, Palestrante: {sessao.palestrante}, ID: {evento_id}, Evento Nome: {evento_nome}")
 
             if evento_id is not None:
-                # Se o evento existe, configure o ID do evento na sessao
                 sessao.evento_id = evento_id
-                # Recupera o objeto Evento
                 evento = self.evento_repository.select_evento_by_id(evento_id)
                 if evento is not None:
-                    # Chama o método insert_sessao passando o objeto Evento
                     self.sessao_repository.insert_sessao(sessao, evento)
                     participante_ui.txt_tema_sessao.setText('')
                     participante_ui.txt_palestrante_sessao.setText('')
