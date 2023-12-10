@@ -82,7 +82,7 @@ class InscricaoDialog(QDialog, Ui_inscricao):
         self.parcipante_service = ParticipanteService()
         self.main_window_service.populate_sessoes_combo(self)
         self.main_window_service.populate_eventos_combo(self)
-        self.main_window_service.populate_tb_sessao(self)
+        self.main_window_service.populate_table_sessao(self)
 
         self.btn_consultar.clicked.connect(self.get_participante)
         self.btn_confirmar.clicked.connect(self.set_inscricao)
