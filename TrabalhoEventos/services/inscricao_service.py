@@ -47,5 +47,29 @@ class InscricaoService:
                 except Exception as e:
                     QMessageBox.warning(inscricao_ui, 'Inscrição', f'Erro ao cadastrar inscrição! \nErro: {e}')
 
+    def select_participante_inscricao(self, inscricao_ui):
+        if inscricao_ui.btn_consultar.text() == 'Limpar':
+            inscricao_ui.txt_nome_participante.setText('')
+            inscricao_ui.txt_email_participante.setText('')
+            inscricao_ui.txt_email_participante.setReadOnly(False)
+            inscricao_ui.selected_participante = None
+            inscricao_ui.pushButton.setText('Consultar')
+        else:
+            try:
+                if inscricao_ui.txt_email_participante.text() != '':
+                    inscricao_participante = (self.participante_repository.select_participante_by_email
+                                              (inscricao_ui.txt_email_participante.text()))
+                    inscricao_ui.selected_funcionario = inscricao_participante
+                    inscricao_ui.txt_nome_participante.setText(inscricao_participante.nome)
+                    inscricao_ui.txt_email_participante.setReadOnly(True)
+                    inscricao_ui.btn_consultar.setText('Limpar')
+
+                else:
+                    QMessageBox.information(inscricao_ui, 'Participantes',
+                                            f'Insira um e-mail para consultar o participante!\n Erro')
+            except Exception as e:
+                QMessageBox.information(inscricao_ui, 'Participantes', f'Erro ao consultar participante!\n Erro{e}')
+
+                inscricao_ui.txt_nome_participante.clear()
 
 
