@@ -1,7 +1,6 @@
 from PySide6.QtWidgets import QMessageBox
 
 from TrabalhoEventos.infra.entities.participante import Participante
-from TrabalhoEventos.infra.repository.inscricao_repository import InscricaoRepository
 from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
 from TrabalhoEventos.infra.repository.participante_repository import ParticipanteRepository
 from TrabalhoEventos.infra.repository.evento_repository import EventoRepository
@@ -14,7 +13,6 @@ class ParticipanteService:
         self.sessao_repository = SessaoRepository()
         self.evento_repository = EventoRepository()
         self.participante_repository = ParticipanteRepository()
-        self.inscricao_repository = InscricaoRepository()
 
     def insert_Participante(self, inscricao_ui):
         participante = Participante()
