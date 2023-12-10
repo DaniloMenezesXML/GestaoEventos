@@ -17,6 +17,7 @@ class Inscricao(Base):
     palestrante: Mapped[str] = mapped_column(nullable=False)
     horario_sessao: Mapped[time] = mapped_column(nullable=False)
     nome_evento: Mapped[str] = mapped_column(nullable=False)
+    email_participante: Mapped[str] = mapped_column(nullable=False)
 
     participante = relationship("Participante", back_populates="inscricao")
     evento = relationship("Evento", back_populates="inscricao")

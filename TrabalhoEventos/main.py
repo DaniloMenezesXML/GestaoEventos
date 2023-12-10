@@ -78,11 +78,20 @@ class InscricaoDialog(QDialog, Ui_inscricao):
         self.main_window_service = MainWindowService()
         self.sessao_service = SessaoService()
         self.evento_service = EventoService()
+        self.inscricao_service = InscricaoService()
         self.parcipante_service = ParticipanteService()
         self.main_window_service.populate_sessoes_combo(self)
+        self.main_window_service.populate_eventos_combo(self)
+        self.main_window_service.populate_tb_sessao(self)
 
-    def get_funcionario(self):
-        self.parcipante_service.select_participante_by_email(self)
+        self.btn_consultar.clicked.connect(self.get_participante)
+        self.btn_confirmar.clicked.connect(self.set_inscricao)
+
+    def get_participante(self):
+        self.inscricao_service.select_participante_inscricao(self)
+
+    def set_inscricao(self):
+        self.inscricao_service.insert_inscricao(self)
 
 if __name__ == "__main__":
     app = QApplication()

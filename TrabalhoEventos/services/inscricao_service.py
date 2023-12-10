@@ -20,30 +20,30 @@ class InscricaoService:
 
     def insert_inscricao(self, inscricao_ui):
         if inscricao_ui.cb_evento.currentText() != 'Selecione o Evento':
-            participante = self.evento_repository.select_evento_by_nome(inscricao_ui.cb_evento.currentText())
-            inscricao_ui.select_evento = None
             if inscricao_ui.cb_sessao.currentText() != 'Selecione a Sessão':
-                participante2 = self.sessao_repository.select_sessao_by_tema(inscricao_ui.cb_sessao.currentText())
-                inscricao_ui.select_sessao = None
                 inscricao = Inscricao()
-                sessao = Sessao()
+                inscricao.email_participante = inscricao_ui.txt_email_participante.text()
                 inscricao.tema = inscricao_ui.cb_sessao.currentText()
-                sessao.palestrante = inscricao_ui.txt_palestrante_sessao.text()
-                sessao.horario_sessao = inscricao_ui.txt_horario_sessao.text()
-                inscricao.palestrante = sessao.palestrante
-                inscricao.horario_sessao = sessao.horario_sessao
                 inscricao.nome_evento = inscricao_ui.cb_evento.currentText()
-                hora = inscricao.horario_sessao
-                hora = datetime.strptime(hora, '%H:%M').time()
-                inscricao.horario_sessao = hora
+                print(
+                    f"Inserting Inscricao - Inscricao: {inscricao.tema}, Email: {inscricao.email_participante}, Palestrante: {inscricao.palestrante}, Evento Nome: {inscricao.nome_evento} Evento Nome: {inscricao.horario_sessao}")
                 try:
-                    self.inscricao_repository.insert_inscricao(inscricao)
-                    inscricao_ui.txt_tema_sessao.setText('')
-                    inscricao_ui.txt_palestrante_sessao.setText('')
-                    inscricao_ui.txt_horario_sessao.setText('')
+                    evento_id = self.evento_repository.select_evento_by_nome_return_id(inscricao.nome_evento)
+                    participante_id = self.participante_repository.select_participante_by_email_return_id(inscricao.email_participante)
+                    sessao_id = self.sessao_repository.select_sessao_by_tema_return_id(inscricao.tema)
+                    print(
+                        f"Inserting Iscricao - Participante: {participante_id}, Evento: {evento_id}, Sessao: {sessao_id}")
+                    print(
+                        f"Inserting Inscricao - Inscricao: {inscricao.tema}, Email: {inscricao.email_participante}, Palestrante: {inscricao.palestrante}, Evento Nome: {inscricao.nome_evento} Horario Sessao: {inscricao.horario_sessao}")
 
-                    self.inscricao_repository.insert_inscricao(inscricao_ui.select_evento, inscricao_ui.select_sessao, participante, participante2, inscricao_ui)
-                    QMessageBox.information(inscricao_ui, 'Inscrição', 'Inscrição criada com sucesso!')
+                    if evento_id is not None and participante_id is not None and sessao_id is not None:
+                        self.inscricao_repository.insert_inscricao(inscricao.sessao_id, inscricao.evento_id, inscricao.participante_id, inscricao)
+                        inscricao_ui.txt_email_participante.setText('')
+                        inscricao_ui.txt_nome_participante.setText('')
+                        self.service_main_window.populate_table_sessao(inscricao_ui)
+                        QMessageBox.information(inscricao_ui, 'Inscricao', 'Participante inscrito com sucesso!')
+                    else:
+                        QMessageBox.warning(inscricao_ui, 'Inscricao', 'Participante não encontrado!')
                 except Exception as e:
                     QMessageBox.warning(inscricao_ui, 'Inscrição', f'Erro ao cadastrar inscrição! \nErro: {e}')
 
