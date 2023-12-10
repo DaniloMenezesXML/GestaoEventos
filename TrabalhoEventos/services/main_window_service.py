@@ -25,16 +25,6 @@ class MainWindowService:
             main_window.tb_lista_sessao_criar_sessao.setItem(linha, 3, QTableWidgetItem(sessao.nome_evento))
             main_window.tb_lista_sessao_criar_sessao.setItem(linha, 4, QTableWidgetItem(sessao.evento_id))
 
-    def populate_tb_sessao(self, inscricao_ui):
-        inscricao_ui.tb_sessao.setRowCount(0)
-        lista_sessao = self.sessao_repository.select_all_sessoes()
-        inscricao_ui.tb_sessao.setRowCount(len(lista_sessao))
-        for linha, sessao in enumerate(lista_sessao):
-            inscricao_ui.tb_sessao.setItem(linha, 0, QTableWidgetItem(sessao.nome_evento))
-            inscricao_ui.tb_sessao.setItem(linha, 1, QTableWidgetItem(sessao.palestrante))
-            inscricao_ui.tb_sessao.setItem(linha, 2, QTableWidgetItem(sessao.tema))
-            inscricao_ui.tb_sessao.setItem(linha, 3, QTableWidgetItem(sessao.horario_sessao.strftime('%H:%M')))
-
     def populate_table_evento(self, main_window):
         main_window.tableWidget.setRowCount(0)
         lista_evento = self.evento_repository.select_all_evento()
