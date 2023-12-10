@@ -22,22 +22,18 @@ class InscricaoService:
         if inscricao_ui.cb_evento.currentText() != 'Selecione o Evento':
             if inscricao_ui.cb_sessao.currentText() != 'Selecione a Sessão':
                 inscricao = Inscricao()
-                inscricao.email_participante = inscricao_ui.txt_email_participante.text()
-                inscricao.tema = inscricao_ui.cb_sessao.currentText()
-                inscricao.nome_evento = inscricao_ui.cb_evento.currentText()
-                print(
-                    f"Inserting Inscricao - Inscricao: {inscricao.tema}, Email: {inscricao.email_participante}, Palestrante: {inscricao.palestrante}, Evento Nome: {inscricao.nome_evento} Evento Nome: {inscricao.horario_sessao}")
+                email_participante = inscricao_ui.txt_email_participante.text()
+                tema = inscricao_ui.cb_sessao.currentText()
+                nome_evento = inscricao_ui.cb_evento.currentText()
                 try:
-                    evento_id = self.evento_repository.select_evento_by_nome_return_id(inscricao.nome_evento)
-                    participante_id = self.participante_repository.select_participante_by_email_return_id(inscricao.email_participante)
-                    sessao_id = self.sessao_repository.select_sessao_by_tema_return_id(inscricao.tema)
+                    evento_id = self.evento_repository.select_evento_by_nome_return_id(nome_evento)
+                    participante_id = self.participante_repository.select_participante_by_email_return_id(email_participante)
+                    sessao_id = self.sessao_repository.select_sessao_by_tema_return_id(tema)
                     print(
                         f"Inserting Iscricao - Participante: {participante_id}, Evento: {evento_id}, Sessao: {sessao_id}")
-                    print(
-                        f"Inserting Inscricao - Inscricao: {inscricao.tema}, Email: {inscricao.email_participante}, Palestrante: {inscricao.palestrante}, Evento Nome: {inscricao.nome_evento} Horario Sessao: {inscricao.horario_sessao}")
 
                     if evento_id is not None and participante_id is not None and sessao_id is not None:
-                        self.inscricao_repository.insert_inscricao(inscricao.sessao_id, inscricao.evento_id, inscricao.participante_id, inscricao)
+                        self.inscricao_repository.insert_inscricao(sessao_id, evento_id, participante_id, inscricao)
                         inscricao_ui.txt_email_participante.setText('')
                         inscricao_ui.txt_nome_participante.setText('')
                         self.service_main_window.populate_table_sessao(inscricao_ui)

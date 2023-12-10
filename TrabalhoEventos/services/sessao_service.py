@@ -2,7 +2,6 @@ from datetime import datetime
 from PySide6.QtWidgets import QMessageBox
 from TrabalhoEventos.infra.entities.sessao import Sessao
 from TrabalhoEventos.infra.repository.evento_repository import EventoRepository
-from TrabalhoEventos.infra.repository.inscricao_repository import InscricaoRepository
 from TrabalhoEventos.infra.repository.participante_repository import ParticipanteRepository
 from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
 from TrabalhoEventos.services.main_window_service import MainWindowService
@@ -14,7 +13,6 @@ class SessaoService:
         self.evento_repository = EventoRepository()
         self.participante_repository = ParticipanteRepository()
         self.sessao_repository = SessaoRepository()
-        self.inscricao_repository = InscricaoRepository()
 
     def insert_sessao(self, participante_ui):
         sessao = Sessao()
