@@ -15,14 +15,16 @@ class SessaoRepository:
             sessao = not db.session.query(Sessao).filter(Sessao.id == id_sessao).first()
             return sessao
 
+
+
     @staticmethod
-    def insert_sessao(self, participante, evento):
+    def insert_sessao(sessao, evento):
         with DBConnectionHandler() as db:
-            ses = Sessao()
-            ses.evento_id = evento.id
-            ses.participante_id = participante.id
+
+            sessao.evento_id = evento.id
+
             try:
-                db.session.add(ses)
+                db.session.add(sessao, evento)
                 db.session.commit()
             except Exception as e:
                 print(e)

@@ -6,7 +6,7 @@ class EventoRepository():
     @staticmethod
     def select_evento_by_id(id_evento):
         with DBConnectionHandler() as db:
-            evento = not db.session.query(Evento).filter(Evento.id == id_evento).first()
+            evento = db.session.query(Evento).filter(Evento.id == id_evento).first()
             return evento
 
     @staticmethod
@@ -21,6 +21,14 @@ class EventoRepository():
             evento = db.session.query(Evento).filter(Evento.nome == nome_evento).first()
             return evento
 
+    @staticmethod
+    def select_evento_by_nome_return_id(nome_evento):
+        with DBConnectionHandler() as db:
+            evento = db.session.query(Evento).filter(Evento.nome == nome_evento).first()
+            if evento:
+                return evento.id
+            else:
+                return None
     @staticmethod
     def select_all_evento():
         with DBConnectionHandler() as db:

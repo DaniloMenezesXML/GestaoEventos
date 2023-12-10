@@ -16,23 +16,39 @@ class SessaoService:
         self.sessao_repository = SessaoRepository()
         self.inscricao_repository = InscricaoRepository()
 
-    def insert_sessao(self, main_window):
+    def insert_sessao(self, participante_ui):
         sessao = Sessao()
-        sessao.nome = main_window.txt_tema_sessao.text()
-        sessao.palestrante = main_window.txt_palestrante_sessao.text()
-        sessao.horario_sessao = main_window.txt_horario_sessao.text()
-
+        sessao.tema = participante_ui.txt_tema_sessao.text()
+        sessao.palestrante = participante_ui.txt_palestrante_sessao.text()
+        sessao.horario_sessao = participante_ui.txt_horario_sessao.text()
+        evento_nome = participante_ui.cb_tipo_evento_sessao.currentText()
+        hora = sessao.horario_sessao
+        hora = datetime.strptime(hora, '%H:%M').time()
+        sessao.horario_sessao = hora
         try:
-            self.evento_repository.insert_one_evento(sessao)
-            main_window.txt_tema_sessao.setText('')
-            main_window.txt_palestrante_sessao.setText('')
-            main_window.txt_horario_sessao.setText('')
+            evento_id = self.evento_repository.select_evento_by_nome_return_id(evento_nome)
+            print(
+                f"Inserting Sessao - Tema: {sessao.tema}, Palestrante: {sessao.palestrante}, ID: {evento_id}, Evento Nome: {evento_nome}")
 
-            self.service_main_window.populate_table_sessao(main_window)
-            QMessageBox.information(main_window, 'Sessao', 'Sessao cadastrado com sucesso!')
+            if evento_id is not None:
+                # Se o evento existe, configure o ID do evento na sessao
+                sessao.evento_id = evento_id
+                # Recupera o objeto Evento
+                evento = self.evento_repository.select_evento_by_id(evento_id)
+                if evento is not None:
+                    # Chama o método insert_sessao passando o objeto Evento
+                    self.sessao_repository.insert_sessao(sessao, evento)
+                    participante_ui.txt_tema_sessao.setText('')
+                    participante_ui.txt_palestrante_sessao.setText('')
+                    participante_ui.txt_horario_sessao.setText('')
+                    self.service_main_window.populate_table_sessao(participante_ui)
+                    QMessageBox.information(participante_ui, 'Sessao', 'Sessao cadastrada com sucesso!')
+                else:
+                    QMessageBox.warning(participante_ui, 'Sessao', 'Evento não encontrado!')
+            else:
+                QMessageBox.warning(participante_ui, 'Sessao', 'Evento não encontrado!')
         except Exception as e:
-            QMessageBox.warning(main_window, 'Sessao', f'Erro ao cadastrar sessao! \nErro: {e}')
-
+            QMessageBox.warning(participante_ui, 'Sessao', f'Erro ao cadastrar sessao! \nErro: {e}')
 
 
 
