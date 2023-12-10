@@ -21,6 +21,7 @@ class SessaoService:
         sessao.tema = participante_ui.txt_tema_sessao.text()
         sessao.palestrante = participante_ui.txt_palestrante_sessao.text()
         sessao.horario_sessao = participante_ui.txt_horario_sessao.text()
+        sessao.nome_evento = participante_ui.cb_tipo_evento_sessao.currentText()
         evento_nome = participante_ui.cb_tipo_evento_sessao.currentText()
         hora = sessao.horario_sessao
         hora = datetime.strptime(hora, '%H:%M').time()

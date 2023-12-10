@@ -12,6 +12,7 @@ class Sessao(Base):
     tema: Mapped[str] = mapped_column(nullable=False)
     palestrante: Mapped[str] = mapped_column(nullable=False)
     horario_sessao: Mapped[time] = mapped_column(nullable=False)
+    nome_evento: Mapped[str] = mapped_column(nullable=False)
 
     evento = relationship("Evento", back_populates= "sessao")
     inscricao = relationship("Inscricao", back_populates="sessao", cascade="save-update")
