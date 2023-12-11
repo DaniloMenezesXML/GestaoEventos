@@ -86,6 +86,7 @@ class Ui_inscricao(object):
         __qtablewidgetitem3 = QTableWidgetItem()
         self.tb_lista_sessao_criar_sessao.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.tb_lista_sessao_criar_sessao.setObjectName(u"tb_lista_sessao_criar_sessao")
+        self.tb_lista_sessao_criar_sessao.setEnabled(False)
         self.tb_lista_sessao_criar_sessao.horizontalHeader().setDefaultSectionSize(165)
 
         self.verticalLayout.addWidget(self.tb_lista_sessao_criar_sessao)

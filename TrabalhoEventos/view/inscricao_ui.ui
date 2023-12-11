@@ -77,6 +77,9 @@
       </item>
       <item>
        <widget class="QTableWidget" name="tb_lista_sessao_criar_sessao">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <attribute name="horizontalHeaderDefaultSectionSize">
          <number>165</number>
         </attribute>
