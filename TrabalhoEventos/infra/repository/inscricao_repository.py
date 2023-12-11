@@ -21,6 +21,16 @@ class InscricaoRepository():
                 print(e)
 
     @staticmethod
+    def select_all_inscricao():
+        with DBConnectionHandler() as db:
+            try:
+                inscricoes = db.session.query(Inscricao).all()
+                return inscricoes
+            except Exception as e:
+                print(f"Erro ao buscar inscrições: {e}")
+                return []
+
+    @staticmethod
     def select_inscricao_by_id(evento_id, participante_id, sessao_id):
         with DBConnectionHandler() as db:
             inscricao = db.session.query(Inscricao).filter(Inscricao.id == evento_id == participante_id == sessao_id).first()
