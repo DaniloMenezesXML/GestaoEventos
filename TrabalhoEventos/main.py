@@ -28,7 +28,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.main_window_service.populate_table_sessao(self)
         self.main_window_service.populate_table_lista_participante(self)
         self.main_window_service.populate_eventos_ativos(self)
-
+        self.main_window_service.populate_table_lista_participante_inicio(self)
 
         self.btn_inscrever_participante.clicked.connect(self.inscricao_participante)
         self.btn_desinscrever_participante.clicked.connect(self.desinscrever_participante)
@@ -92,6 +92,7 @@ class InscricaoDialog(QDialog, Ui_inscricao):
 
     def set_inscricao(self):
         self.inscricao_service.insert_inscricao(self)
+        self.main_window_service.populate_lista_participante_inicio(self)
 
 if __name__ == "__main__":
     app = QApplication()
@@ -118,4 +119,5 @@ if __name__ == "__main__":
     app.setStyle('Fusion')
     window = Mainwindow()
     window.show()
+
     sys.exit(app.exec())

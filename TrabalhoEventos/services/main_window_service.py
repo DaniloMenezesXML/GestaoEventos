@@ -6,6 +6,7 @@ from PySide6.QtWidgets import QMessageBox, QTableWidgetItem
 from TrabalhoEventos.infra.repository.evento_repository import EventoRepository
 from TrabalhoEventos.infra.repository.participante_repository import ParticipanteRepository
 from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
+from TrabalhoEventos.infra.repository.inscricao_repository import InscricaoRepository
 
 
 class MainWindowService:
@@ -13,7 +14,7 @@ class MainWindowService:
         self.evento_repository = EventoRepository()
         self.participante_repository = ParticipanteRepository()
         self.sessao_repository = SessaoRepository()
-
+        self.inscricao_repository = InscricaoRepository()
     def populate_table_sessao(self, main_window):
         main_window.tb_lista_sessao_criar_sessao.setRowCount(0)
         lista_sessao = self.sessao_repository.select_all_sessoes()
@@ -118,3 +119,22 @@ class MainWindowService:
                                                                     f' relarorio_{datetime.datetime.now()}.xlsx')
             except Exception as e:
                 QMessageBox.warning(main_window, 'Atenção', f'Erro ao gerar relatório!\nErro: {e}')
+
+    def populate_table_lista_participante_inicio(self, main_window):
+        try:
+            main_window.tb_lista_participante_inicio.setRowCount(0)
+            lista_inscricao = self.inscricao_repository.select_all_inscricao()
+            main_window.tb_lista_participante_inicio.setRowCount(len(lista_inscricao))
+            for linha, inscricao in enumerate(lista_inscricao):
+                participante = inscricao.participante
+                evento = inscricao.evento
+                sessao = inscricao.sessao
+
+                main_window.tb_lista_participante_inicio.insertRow(linha)
+                main_window.tb_lista_participante_inicio.setItem(linha, 0, QTableWidgetItem(participante.nome))
+                main_window.tb_lista_participante_inicio.setItem(linha, 1, QTableWidgetItem(participante.email))
+                main_window.tb_lista_participante_inicio.setItem(linha, 2, QTableWidgetItem(evento.nome))
+                main_window.tb_lista_participante_inicio.setItem(linha, 3, QTableWidgetItem(sessao.tema))
+        except Exception as e:
+            QMessageBox.warning(main_window, 'Atenção', f'Erro ao carregar lista de participantes!\nErro: {e}')
+
