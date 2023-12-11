@@ -80,46 +80,16 @@ class MainWindowService:
     def populate_agenda(self, main_window):
         try:
             main_window.tb_lista_sessao_agenda.setRowCount(0)
-            sessoes = self.sessao_repository.select_sessoes_by_email(main_window.txt_email_participante_agenda.text())
-            main_window.tb_lista_sessao_agenda.setRowCount(len(sessoes))
-            for linha, (ses, participante, evento) in enumerate(sessoes):
+            inscricao_email = self.inscricao_repository.select_all_inscricao_by_email(main_window.txt_email_participante_agenda.text())
+            main_window.tb_lista_sessao_agenda.setRowCount(len(inscricao_email))
+            for linha, (inscricao, participante, evento, sessao) in enumerate(inscricao_email):
                 main_window.tb_lista_sessao_agenda.setItem(linha, 0, QTableWidgetItem(participante.nome))
                 main_window.tb_lista_sessao_agenda.setItem(linha, 1, QTableWidgetItem(evento.nome))
-                main_window.tb_lista_sessao_agenda.setItem(linha, 2, QTableWidgetItem(ses.tema))
-                main_window.tb_lista_sessao_agenda.setItem(linha, 3, QTableWidgetItem(ses.horario_sessao
-                                                                                      .strftime('%d/%m/%Y_%H:%M:%S')))
+                main_window.tb_lista_sessao_agenda.setItem(linha, 2, QTableWidgetItem(sessao.tema))
+                main_window.tb_lista_sessao_agenda.setItem(linha, 3, QTableWidgetItem(sessao.horario_sessao
+                                                                                      .strftime('%H:%M')))
         except Exception as e:
             QMessageBox.warning(main_window, 'Atenção', f'E-mail inserido pode estar incorreto!\nErro {e}')
-
-    def export_agenda(self, main_window):
-        if main_window.tb_lista_sessao_agenda.rowCount() > 0:
-            rows = main_window.tb_lista_sessao_agenda.rowCount()
-            cols = main_window.tb_lista_sessao_agenda.columnCount()
-            headers = ['Nome do participante', 'Evento', 'Sessão', 'Horário da Sessão']
-            data = []
-            for row in range(rows):
-                row_data = []
-                for col in range(cols):
-                    item = main_window.tb_lista_sessao_agenda.item(row, col)
-                    if item and item.text():
-                        row_data.append(item.text())
-                    else:
-                        row_data.append('')
-                data.append(row_data)
-            try:
-                df = pd.DataFrame(data, columns=headers)
-            except Exception as e:
-                pass
-
-            try:
-                df.to_excel(f'relatorio_{datetime.datetime.now().strftime("%Y%m%d_%H%M%S")}.xlsx', index=False,
-                            engine='openpyxl')
-                QMessageBox.information(main_window, "sesréstimos", f'Relatório exportado com sucesso! \n'
-                                                                    f'Verifique na pasta do programa o arquivo:\n'
-                                                                    f' relarorio_{datetime.datetime.now()}.xlsx')
-            except Exception as e:
-                QMessageBox.warning(main_window, 'Atenção', f'Erro ao gerar relatório!\nErro: {e}')
-
 
     def populate_table_lista_participante_inicio(self, main_window):
         try:

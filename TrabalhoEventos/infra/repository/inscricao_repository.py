@@ -41,6 +41,26 @@ class InscricaoRepository():
             print(f"Erro ao carregar lista de participantes!\nErro: {e}")
 
     @staticmethod
+    def select_all_inscricao_by_email(email):
+        try:
+            with DBConnectionHandler() as db:
+                results = (
+                    db.session.query(
+                        Inscricao,
+                        Participante,
+                        Evento,
+                        Sessao
+                    )
+                    .join(Participante, Inscricao.participante_id == Participante.id)
+                    .join(Evento, Inscricao.evento_id == Evento.id)
+                    .join(Sessao, Inscricao.sessao_id == Sessao.id)
+                    .filter(Participante.email == email).all())
+                return results
+        except Exception as e:
+            print(f"Erro ao carregar lista de participantes!\nErro: {e}")
+
+
+    @staticmethod
     def select_inscricao_by_id(evento_id, participante_id, sessao_id):
         with DBConnectionHandler() as db:
             inscricao = db.session.query(Inscricao).filter(Inscricao.id == evento_id == participante_id == sessao_id).first()

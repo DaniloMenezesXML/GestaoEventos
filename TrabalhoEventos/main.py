@@ -24,6 +24,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.evento_service = EventoService()
         self.inscricao_service = InscricaoService()
         self.participante_service = ParticipanteService()
+        self.main_window_service.populate_agenda(self)
         self.main_window_service.populate_table_evento(self)
         self.main_window_service.populate_table_sessao(self)
         self.main_window_service.populate_table_lista_participante(self)
@@ -57,7 +58,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         self.participante_service.delete_participante(self)
 
     def consultar_email(self):
-        self.participante_service.select_participante_by_email(self)
+        self.main_window_service.populate_agenda(self)
 
     def inscricao_participante(self, id_evento):
         self.inscricao_dialog = InscricaoDialog()
