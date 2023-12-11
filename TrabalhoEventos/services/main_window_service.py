@@ -26,6 +26,17 @@ class MainWindowService:
             main_window.tb_lista_sessao_criar_sessao.setItem(linha, 3, QTableWidgetItem(sessao.nome_evento))
             main_window.tb_lista_sessao_criar_sessao.setItem(linha, 4, QTableWidgetItem(sessao.evento_id))
 
+    def populate_inscricao(self, main_window):
+        main_window.tb_lista_sessao_criar_sessao.setRowCount(0)
+        lista_sessao = self.sessao_repository.select_all_sessoes()
+        main_window.tb_lista_sessao_criar_sessao.setRowCount(len(lista_sessao))
+        for linha, sessao in enumerate(lista_sessao):
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 0, QTableWidgetItem(sessao.nome_evento))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 1, QTableWidgetItem(sessao.tema))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 2, QTableWidgetItem(sessao.palestrante))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 3, QTableWidgetItem(sessao.horario_sessao.strftime('%H:%M')))
+            main_window.tb_lista_sessao_criar_sessao.setItem(linha, 4, QTableWidgetItem(sessao.evento_id))
+
     def populate_table_evento(self, main_window):
         main_window.tableWidget.setRowCount(0)
         lista_evento = self.evento_repository.select_all_evento()
@@ -46,14 +57,14 @@ class MainWindowService:
 
     def populate_sessoes_combo(self, inscricao_ui):
         inscricao_ui.cb_sessao.clear()
-        inscricao_ui.cb_sessao.addItem('Selecione')
+        inscricao_ui.cb_sessao.addItem('Selecione a Sessão')
         inscricao_ui.sessoes = self.sessao_repository.select_all_sessoes()
         for sessao in inscricao_ui.sessoes:
             inscricao_ui.cb_sessao.addItem(sessao.tema)
 
     def populate_eventos_combo(self, inscricao_ui):
         inscricao_ui.cb_evento.clear()
-        inscricao_ui.cb_evento.addItem('Selecione')
+        inscricao_ui.cb_evento.addItem('Selecione o Evento')
         inscricao_ui.eventos = self.evento_repository.select_all_evento()
         for evento in inscricao_ui.eventos:
             inscricao_ui.cb_evento.addItem(evento.nome)
