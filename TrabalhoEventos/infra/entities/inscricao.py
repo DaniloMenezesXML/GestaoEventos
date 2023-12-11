@@ -17,4 +17,4 @@ class Inscricao(Base):
     sessao = relationship("Sessao", back_populates="inscricao")
 
     def __repr__(self):
-        return
+        return (f'Inscricao [inscricao = {self.id}, evento_id = {self.evento_id}, sessao_id = {self.sessao_id}, participante_id = {self.participante_id}]')

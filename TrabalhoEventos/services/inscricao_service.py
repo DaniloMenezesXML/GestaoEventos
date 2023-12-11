@@ -52,18 +52,18 @@ class InscricaoService:
                     evento_id = self.evento_repository.select_evento_by_nome_return_id(nome_evento)
                     participante_id = self.participante_repository.select_participante_by_email_return_id(email_participante)
                     sessao_id = self.sessao_repository.select_sessao_by_tema_return_id(tema)
-                    inscricao_id = self.inscricao_repository.select_inscricao_by_id_return_id()
+                    id = self.inscricao_repository.select_inscricao_by_id(evento_id, participante_id, sessao_id)
                     print(
                         f"Inserting Iscricao - Participante: {participante_id}, Evento: {evento_id}, Sessao: {sessao_id}")
 
-                    if evento_id is not None and participante_id is not None and sessao_id is not None:
-                        self.inscricao_repository.delete_inscricao(sessao_id, evento_id, participante_id, inscricao_id)
+                    if id is not None:
+                        self.inscricao_repository.delete_inscricao(id)
                         self.service_main_window.populate_table_sessao(inscricao_ui)
                         QMessageBox.information(inscricao_ui, 'Inscricao', 'Participante inscrito com sucesso!')
                     else:
                         QMessageBox.warning(inscricao_ui, 'Inscricao', 'Participante não encontrado!')
                 except Exception as e:
-                    QMessageBox.warning(inscricao_ui, 'Inscrição', f'Erro ao cadastrar inscrição! \nErro: {e}')
+                    QMessageBox.warning(inscricao_ui, 'Inscrição', f'Erro ao desinscrever! \nErro: {e}')
 
     def select_participante_inscricao(self, inscricao_ui):
         if inscricao_ui.btn_consultar.text() == 'Limpar':

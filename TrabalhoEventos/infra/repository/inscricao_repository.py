@@ -21,26 +21,19 @@ class InscricaoRepository():
                 print(e)
 
     @staticmethod
-    def select_inscricao_by_id_return_id(evento_id, participante_id, sessao_id):
+    def select_inscricao_by_id(evento_id, participante_id, sessao_id):
         with DBConnectionHandler() as db:
-            evento = db.session.query(Evento).filter(Evento.id == evento_id).first()
-            participante = db.session.query(Participante).filter(Participante.id == participante_id).first()
-            sessao = db.session.query(Sessao).filter(Sessao.id == sessao_id).first()
-            inscricao = db.session.query(Sessao).filter(Sessao.id == sessao_id).first()
+            inscricao = db.session.query(Inscricao).filter(Inscricao.id == evento_id == participante_id == sessao_id).first()
             if inscricao:
-                return inscricao
+                return inscricao.id
             else:
                 return None
 
     @staticmethod
-    def delete_inscricao(participante_id, evento_id, sessao_id, inscricao):
+    def delete_inscricao(inscricao):
         with DBConnectionHandler() as db:
-            insc = Inscricao()
-            insc.evento_id = evento_id
-            insc.participante_id = participante_id
-            insc.sessao_id = sessao_id
             try:
-                db.session.delete(insc)
+                db.session.delete(inscricao)
                 db.session.commit()
             except Exception as e:
                 print(e)
