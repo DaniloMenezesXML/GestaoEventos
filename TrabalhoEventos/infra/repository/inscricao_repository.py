@@ -22,13 +22,23 @@ class InscricaoRepository():
 
     @staticmethod
     def select_all_inscricao():
-        with DBConnectionHandler() as db:
-            try:
-                inscricoes = db.session.query(Inscricao).all()
-                return inscricoes
-            except Exception as e:
-                print(f"Erro ao buscar inscrições: {e}")
-                return []
+        try:
+            with DBConnectionHandler() as db:
+                results = (
+                    db.session.query(
+                        Inscricao,
+                        Participante,
+                        Evento,
+                        Sessao
+                    )
+                    .join(Participante, Inscricao.participante_id == Participante.id)
+                    .join(Evento, Inscricao.evento_id == Evento.id)
+                    .join(Sessao, Inscricao.sessao_id == Sessao.id)
+                    .all()
+                )
+                return results
+        except Exception as e:
+            print(f"Erro ao carregar lista de participantes!\nErro: {e}")
 
     @staticmethod
     def select_inscricao_by_id(evento_id, participante_id, sessao_id):

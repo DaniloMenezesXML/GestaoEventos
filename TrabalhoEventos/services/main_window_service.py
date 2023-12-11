@@ -120,16 +120,13 @@ class MainWindowService:
             except Exception as e:
                 QMessageBox.warning(main_window, 'Atenção', f'Erro ao gerar relatório!\nErro: {e}')
 
+
     def populate_table_lista_participante_inicio(self, main_window):
         try:
             main_window.tb_lista_participante_inicio.setRowCount(0)
             lista_inscricao = self.inscricao_repository.select_all_inscricao()
             main_window.tb_lista_participante_inicio.setRowCount(len(lista_inscricao))
-            for linha, inscricao in enumerate(lista_inscricao):
-                participante = inscricao.participante
-                evento = inscricao.evento
-                sessao = inscricao.sessao
-
+            for linha, (inscricao, participante, evento, sessao) in enumerate(lista_inscricao):
                 main_window.tb_lista_participante_inicio.insertRow(linha)
                 main_window.tb_lista_participante_inicio.setItem(linha, 0, QTableWidgetItem(participante.nome))
                 main_window.tb_lista_participante_inicio.setItem(linha, 1, QTableWidgetItem(participante.email))
@@ -137,4 +134,3 @@ class MainWindowService:
                 main_window.tb_lista_participante_inicio.setItem(linha, 3, QTableWidgetItem(sessao.tema))
         except Exception as e:
             QMessageBox.warning(main_window, 'Atenção', f'Erro ao carregar lista de participantes!\nErro: {e}')
-

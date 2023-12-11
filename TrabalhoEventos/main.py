@@ -62,6 +62,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
         #self.hide()
         #self.inscricao_dialog.finished.connect(
             #lambda: self.main_window_service.populate_table_lista_participante(self))
+
     def cadastrar_participante(self):
         self.participante_service.insert_Participante(self)
 
