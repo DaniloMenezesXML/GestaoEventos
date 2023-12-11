@@ -117,6 +117,12 @@ Tela Inscrever e Desinscrever Participante:
 
 🧠 Desenvolvido por:
 Os seguintes desenvolvedores foram responsáveis pelo projeto:
+```
 Henrique Jardel Nagao Prudêncio.
+```
+```
 Lucas Amaral Farias.
+```
+```
 Danilo Silva de Menezes.
+```
