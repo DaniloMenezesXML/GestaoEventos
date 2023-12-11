@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>4</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_inicio">
        <attribute name="title">
@@ -59,14 +59,7 @@
         <item>
          <widget class="QPushButton" name="btn_inscrever_participante">
           <property name="text">
-           <string>Inscrever Participante</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_desinscrever_participante">
-          <property name="text">
-           <string>Desinscrever Participante</string>
+           <string>Inscrever e Desinscrever Participante</string>
           </property>
          </widget>
         </item>

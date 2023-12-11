@@ -19,16 +19,13 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QHeaderView
     QLabel, QLineEdit, QMainWindow, QPushButton,
     QSizePolicy, QSpacerItem, QTabWidget, QTableWidget,
     QTableWidgetItem, QVBoxLayout, QWidget)
-from TrabalhoEventos.view import  resource_rc
+from TrabalhoEventos.view import resource_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(835, 744)
-        icon = QIcon()
-        icon.addFile(u":/icon/MicrosoftTeams-image.png", QSize(), QIcon.Normal, QIcon.Off)
-        MainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
@@ -57,11 +54,6 @@ class Ui_MainWindow(object):
         self.btn_inscrever_participante.setObjectName(u"btn_inscrever_participante")
 
         self.verticalLayout_6.addWidget(self.btn_inscrever_participante)
-
-        self.btn_desinscrever_participante = QPushButton(self.tab_inicio)
-        self.btn_desinscrever_participante.setObjectName(u"btn_desinscrever_participante")
-
-        self.verticalLayout_6.addWidget(self.btn_desinscrever_participante)
 
         self.cb_filtrar_evento = QComboBox(self.tab_inicio)
         self.cb_filtrar_evento.addItem("")
@@ -346,8 +338,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.btn_inscrever_participante.setText(QCoreApplication.translate("MainWindow", u"Inscrever Participante", None))
-        self.btn_desinscrever_participante.setText(QCoreApplication.translate("MainWindow", u"Desinscrever Participante", None))
+        self.btn_inscrever_participante.setText(QCoreApplication.translate("MainWindow", u"Inscrever e Desinscrever Participante", None))
         self.cb_filtrar_evento.setItemText(0, QCoreApplication.translate("MainWindow", u"Filtrar por Evento", None))
 
         ___qtablewidgetitem = self.tb_lista_participante_inicio.horizontalHeaderItem(0)

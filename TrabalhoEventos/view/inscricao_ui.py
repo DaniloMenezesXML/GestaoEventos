@@ -90,10 +90,20 @@ class Ui_inscricao(object):
 
         self.verticalLayout.addWidget(self.tb_lista_sessao_criar_sessao)
 
-        self.btn_confirmar = QPushButton(self.widget)
-        self.btn_confirmar.setObjectName(u"btn_confirmar")
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.btn_desinscrever = QPushButton(self.widget)
+        self.btn_desinscrever.setObjectName(u"btn_desinscrever")
 
-        self.verticalLayout.addWidget(self.btn_confirmar)
+        self.horizontalLayout_2.addWidget(self.btn_desinscrever)
+
+        self.btn_inscrever = QPushButton(self.widget)
+        self.btn_inscrever.setObjectName(u"btn_inscrever")
+
+        self.horizontalLayout_2.addWidget(self.btn_inscrever)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
 
         self.verticalLayout_2.addWidget(self.widget)
@@ -123,6 +133,7 @@ class Ui_inscricao(object):
         ___qtablewidgetitem2.setText(QCoreApplication.translate("inscricao", u"Tema Sess\u00e3o", None));
         ___qtablewidgetitem3 = self.tb_lista_sessao_criar_sessao.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("inscricao", u"Hor\u00e1rio Sess\u00e3o", None));
-        self.btn_confirmar.setText(QCoreApplication.translate("inscricao", u"Confirmar", None))
+        self.btn_desinscrever.setText(QCoreApplication.translate("inscricao", u"Desinscrever", None))
+        self.btn_inscrever.setText(QCoreApplication.translate("inscricao", u"Inscrever", None))
     # retranslateUi
 
