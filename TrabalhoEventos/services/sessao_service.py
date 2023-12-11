@@ -45,8 +45,3 @@ class SessaoService:
                 QMessageBox.warning(participante_ui, 'Sessao', 'Evento não encontrado!')
         except Exception as e:
             QMessageBox.warning(participante_ui, 'Sessao', f'Erro ao cadastrar sessao! \nErro: {e}')
-
-
-
-
-

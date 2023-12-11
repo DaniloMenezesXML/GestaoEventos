@@ -92,4 +92,3 @@ class ParticipanteService:
                 self.service_main_window.populate_table_participante(participante_ui)
             except Exception as e:
                 QMessageBox.warning(participante_ui, f'Atenção, Problema ao desinscrever participante. \n Erro{e}')
-

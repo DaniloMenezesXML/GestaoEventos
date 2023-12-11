@@ -36,9 +36,3 @@ class EventoService:
             QMessageBox.information(main_window, 'Evento', 'Evento cadastrado com sucesso!')
         except Exception as e:
             QMessageBox.warning(main_window, 'Evento', f'Erro ao cadastrar evento! \nErro: {e}')
-
-
-
-
-
-

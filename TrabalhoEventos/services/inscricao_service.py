@@ -84,5 +84,3 @@ class InscricaoService:
                 QMessageBox.information(inscricao_ui, 'Participantes', f'Erro ao consultar participante!\n Erro{e}')
 
                 inscricao_ui.txt_nome_participante.clear()
-
-
