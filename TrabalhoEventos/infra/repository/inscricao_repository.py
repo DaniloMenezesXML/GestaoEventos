@@ -30,10 +30,15 @@ class InscricaoRepository():
                 return None
 
     @staticmethod
-    def delete_inscricao(inscricao):
+    def delete_inscricao(id):
         with DBConnectionHandler() as db:
             try:
-                db.session.delete(inscricao)
-                db.session.commit()
+                inscricao = db.session.query(Inscricao).get(id)
+                if inscricao:
+                    db.session.delete(inscricao)
+                    db.session.commit()
+                    print("Inscrição excluída com sucesso!")
+                else:
+                    print("Inscrição não encontrada para exclusão.")
             except Exception as e:
-                print(e)
+                print(f"Erro ao excluir a inscrição: {e}")
