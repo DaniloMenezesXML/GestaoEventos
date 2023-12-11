@@ -82,3 +82,9 @@ class InscricaoRepository():
                     print("Inscrição não encontrada para exclusão.")
             except Exception as e:
                 print(f"Erro ao excluir a inscrição: {e}")
+
+    @staticmethod
+    def select_inscicao_by_email(email_participante):
+        with DBConnectionHandler() as db:
+            participante = db.session.query(Participante).filter(Participante.inscricao == email_participante).first()
+            return participante.inscricao.id
