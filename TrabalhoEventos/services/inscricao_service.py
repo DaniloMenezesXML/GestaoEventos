@@ -34,8 +34,6 @@ class InscricaoService:
 
                     if evento_id is not None and participante_id is not None and sessao_id is not None:
                         self.inscricao_repository.insert_inscricao(sessao_id, evento_id, participante_id, inscricao)
-                        inscricao_ui.txt_email_participante.setText('')
-                        inscricao_ui.txt_nome_participante.setText('')
                         self.service_main_window.populate_table_sessao(inscricao_ui)
                         QMessageBox.information(inscricao_ui, 'Inscricao', 'Participante inscrito com sucesso!')
                     else:
@@ -43,13 +41,36 @@ class InscricaoService:
                 except Exception as e:
                     QMessageBox.warning(inscricao_ui, 'Inscrição', f'Erro ao cadastrar inscrição! \nErro: {e}')
 
+    def delete_inscricao(self, inscricao_ui):
+        if inscricao_ui.cb_evento.currentText() != 'Selecione o Evento':
+            if inscricao_ui.cb_sessao.currentText() != 'Selecione a Sessão':
+                email_participante = inscricao_ui.txt_email_participante.text()
+                tema = inscricao_ui.cb_sessao.currentText()
+                nome_evento = inscricao_ui.cb_evento.currentText()
+                try:
+                    evento_id = self.evento_repository.select_evento_by_nome_return_id(nome_evento)
+                    participante_id = self.participante_repository.select_participante_by_email_return_id(email_participante)
+                    sessao_id = self.sessao_repository.select_sessao_by_tema_return_id(tema)
+                    inscricao_id = self.inscricao_repository.select_inscricao_by_id(evento_id, participante_id, sessao_id)
+                    print(
+                        f"Inserting Iscricao - Participante: {participante_id}, Evento: {evento_id}, Sessao: {sessao_id}")
+
+                    if inscricao_id is not None:
+                        self.inscricao_repository.delete_inscricao(inscricao_id)
+                        self.service_main_window.populate_table_sessao(inscricao_ui)
+                        QMessageBox.information(inscricao_ui, 'Inscricao', 'Participante desinscrito com sucesso!')
+                    else:
+                        QMessageBox.warning(inscricao_ui, 'Inscricao', 'Participante não encontrado!')
+                except Exception as e:
+                    QMessageBox.warning(inscricao_ui, 'Inscrição', f'Erro ao desinscrever! \nErro: {e}')
+
     def select_participante_inscricao(self, inscricao_ui):
         if inscricao_ui.btn_consultar.text() == 'Limpar':
             inscricao_ui.txt_nome_participante.setText('')
             inscricao_ui.txt_email_participante.setText('')
             inscricao_ui.txt_email_participante.setReadOnly(False)
             inscricao_ui.selected_participante = None
-            inscricao_ui.pushButton.setText('Consultar')
+            inscricao_ui.btn_consultar.setText('Consultar')
         else:
             try:
                 if inscricao_ui.txt_email_participante.text() != '':

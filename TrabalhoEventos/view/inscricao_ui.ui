@@ -103,11 +103,22 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btn_confirmar">
-        <property name="text">
-         <string>Confirmar</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="btn_desinscrever">
+          <property name="text">
+           <string>Desinscrever</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_inscrever">
+          <property name="text">
+           <string>Inscrever</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
