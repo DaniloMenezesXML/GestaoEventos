@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(835, 744)
+        MainWindow.resize(877, 686)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
@@ -55,14 +55,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_6.addWidget(self.btn_inscrever_participante)
 
-        self.cb_filtrar_evento = QComboBox(self.tab_inicio)
-        self.cb_filtrar_evento.addItem("")
-        self.cb_filtrar_evento.setObjectName(u"cb_filtrar_evento")
-        self.cb_filtrar_evento.setStyleSheet(u"")
-        self.cb_filtrar_evento.setEditable(False)
-
-        self.verticalLayout_6.addWidget(self.cb_filtrar_evento)
-
         self.tb_lista_participante_inicio = QTableWidget(self.tab_inicio)
         if (self.tb_lista_participante_inicio.columnCount() < 4):
             self.tb_lista_participante_inicio.setColumnCount(4)
@@ -75,9 +67,25 @@ class Ui_MainWindow(object):
         __qtablewidgetitem3 = QTableWidgetItem()
         self.tb_lista_participante_inicio.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.tb_lista_participante_inicio.setObjectName(u"tb_lista_participante_inicio")
+        self.tb_lista_participante_inicio.setEnabled(False)
         self.tb_lista_participante_inicio.horizontalHeader().setDefaultSectionSize(175)
 
         self.verticalLayout_6.addWidget(self.tb_lista_participante_inicio)
+
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_7.addItem(self.horizontalSpacer_5)
+
+        self.btn_atualizar_table = QPushButton(self.tab_inicio)
+        self.btn_atualizar_table.setObjectName(u"btn_atualizar_table")
+        self.btn_atualizar_table.setEnabled(True)
+
+        self.horizontalLayout_7.addWidget(self.btn_atualizar_table)
+
+
+        self.verticalLayout_6.addLayout(self.horizontalLayout_7)
 
         self.tabWidget.addTab(self.tab_inicio, "")
         self.tab_agenda = QWidget()
@@ -116,7 +124,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem7 = QTableWidgetItem()
         self.tb_lista_sessao_agenda.setHorizontalHeaderItem(3, __qtablewidgetitem7)
         self.tb_lista_sessao_agenda.setObjectName(u"tb_lista_sessao_agenda")
-        self.tb_lista_sessao_agenda.setEnabled(True)
+        self.tb_lista_sessao_agenda.setEnabled(False)
         self.tb_lista_sessao_agenda.setAutoFillBackground(False)
         self.tb_lista_sessao_agenda.horizontalHeader().setDefaultSectionSize(175)
 
@@ -169,6 +177,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem9 = QTableWidgetItem()
         self.tb_participante.setHorizontalHeaderItem(1, __qtablewidgetitem9)
         self.tb_participante.setObjectName(u"tb_participante")
+        self.tb_participante.setEnabled(False)
         self.tb_participante.horizontalHeader().setDefaultSectionSize(175)
 
         self.verticalLayout_4.addWidget(self.tb_participante)
@@ -232,6 +241,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem12 = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem12)
         self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setEnabled(False)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(175)
 
         self.verticalLayout_2.addWidget(self.tableWidget)
@@ -304,6 +314,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem16 = QTableWidgetItem()
         self.tb_lista_sessao_criar_sessao.setHorizontalHeaderItem(3, __qtablewidgetitem16)
         self.tb_lista_sessao_criar_sessao.setObjectName(u"tb_lista_sessao_criar_sessao")
+        self.tb_lista_sessao_criar_sessao.setEnabled(False)
         self.tb_lista_sessao_criar_sessao.horizontalHeader().setDefaultSectionSize(175)
 
         self.verticalLayout.addWidget(self.tb_lista_sessao_criar_sessao)
@@ -339,8 +350,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.btn_inscrever_participante.setText(QCoreApplication.translate("MainWindow", u"Inscrever e Desinscrever Participante", None))
-        self.cb_filtrar_evento.setItemText(0, QCoreApplication.translate("MainWindow", u"Filtrar por Evento", None))
-
         ___qtablewidgetitem = self.tb_lista_participante_inicio.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Nome do Participante", None));
         ___qtablewidgetitem1 = self.tb_lista_participante_inicio.horizontalHeaderItem(1)
@@ -349,6 +358,7 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Evento", None));
         ___qtablewidgetitem3 = self.tb_lista_participante_inicio.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Sess\u00e3o", None));
+        self.btn_atualizar_table.setText(QCoreApplication.translate("MainWindow", u"Atualizar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_inicio), QCoreApplication.translate("MainWindow", u"In\u00edcio", None))
         self.lbl_email_participante.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:11pt;\">E-mail do Participante</span></p></body></html>", None))
         self.btn_consultar_email.setText(QCoreApplication.translate("MainWindow", u"Consultar", None))

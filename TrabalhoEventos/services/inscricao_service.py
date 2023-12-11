@@ -1,8 +1,5 @@
-from datetime import datetime
 from PySide6.QtWidgets import QMessageBox
-
 from TrabalhoEventos.infra.entities.inscricao import Inscricao
-from TrabalhoEventos.infra.entities.sessao import Sessao
 from TrabalhoEventos.infra.repository.sessao_repository import SessaoRepository
 from TrabalhoEventos.infra.repository.inscricao_repository import InscricaoRepository
 from TrabalhoEventos.infra.repository.evento_repository import EventoRepository
@@ -80,7 +77,6 @@ class InscricaoService:
                     inscricao_ui.txt_nome_participante.setText(inscricao_participante.nome)
                     inscricao_ui.txt_email_participante.setReadOnly(True)
                     inscricao_ui.btn_consultar.setText('Limpar')
-
                 else:
                     QMessageBox.information(inscricao_ui, 'Participantes',
                                             f'Insira um e-mail para consultar o participante!\n Erro')

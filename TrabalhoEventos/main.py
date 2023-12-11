@@ -41,6 +41,7 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
 
         self.btn_cadastrar.clicked.connect(self.cadastrar_participante)
 
+        self.btn_atualizar_table.clicked.connect(self.atualizar_table)
 
     def criar_evento(self):
         self.evento_service.insert_evento(self)
@@ -48,6 +49,9 @@ class Mainwindow(QMainWindow, Ui_MainWindow):
 
     def criar_sessao(self):
         self.sessao_service.insert_sessao(self)
+
+    def atualizar_table(self):
+        self.main_window_service.populate_table_lista_participante_inicio(self)
 
     def desinscrever_participante(self):
         self.participante_service.delete_participante(self)
@@ -89,12 +93,12 @@ class InscricaoDialog(QDialog, Ui_inscricao):
         self.btn_inscrever.clicked.connect(self.set_inscricao)
         self.btn_desinscrever.clicked.connect(self.desinscricao)
 
+
     def get_participante(self):
         self.inscricao_service.select_participante_inscricao(self)
 
     def set_inscricao(self):
         self.inscricao_service.insert_inscricao(self)
-        self.main_window_service.populate_lista_participante_inicio(self)
 
     def desinscricao(self):
         self.inscricao_service.delete_inscricao(self)
